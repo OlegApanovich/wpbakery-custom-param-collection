@@ -17,7 +17,9 @@ That's it. Now you can specify any custom parameters from the list below in your
 
 ## Collection List
 
-### 1. Number.
+### 1. Number
+
+__type__ : custom-number
 
 __Description__
 Regular input with a type number.
@@ -28,7 +30,7 @@ __Screnshot:__
 
 __Param Attributes:__
 
-| Name | Type | Description |
-|----------|----------|----------|
-| Row 1    | Data     | More     |
-| Row 2    | Info     | Here     |
+| Name | Type | Requred | Description |
+|----------|----------|----------|----------|
+| min    | integer     | no     | Minimum value for input | 
+| max    | integer     | no     | Maximum value for input |
