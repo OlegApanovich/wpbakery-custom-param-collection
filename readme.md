@@ -26,7 +26,7 @@ Regular input with a type number.
 
 __Screnshot:__
 
-![Number Param](assets/images/github-reame/screen-1.png)
+![Number Param](assets/images/github-readme/screen-1.png)
 
 __Param Attributes:__
 
