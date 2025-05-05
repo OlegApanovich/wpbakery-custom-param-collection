@@ -66,7 +66,7 @@ function your_name_integrate() {
 }
 ```
 
-### 1. Notice
+### 2. Notice
 
 __type__ : custom-notice
 
@@ -81,6 +81,7 @@ __Param Attributes:__
 
 | Name | Type | Requred | Description | 
 |----------|----------|----------|----------|
+| param_name    | string     | yes     | Param slug. |
 | notice    | string     | no     | Notice text. |
 | level    | string     | no     | On a level depends the color of the notice UI. There are 4 value levels available (info, warning, error, success). If the level is not specified, the notice will be grey.  |
 
@@ -122,6 +123,52 @@ function your_name_integrate() {
                 'type'        => 'custom-notice',
                 'param_name'  => 'custom_notice_empty',
                 'notice'      => __('Here is empty level notice.', 'my-text-domain'),
+            ],
+        ]
+    ] );
+}
+```
+
+### 3. Switcher
+
+__type__ : custom-switcher
+
+__Description__
+Output the yes/no type switcher.
+
+__Screnshot:__
+
+![Notice Param](assets/images/github-readme/screen-3.png)
+
+__Param Attributes:__
+
+| Name | Type | Requred | Description | 
+|----------|----------|----------|----------|
+| param_name    | string     | yes     | Param slug. |
+| option    | array     | yes     | Switcher options |
+| value    | string     | no     | Set here the value the same as the options key if you wanna switch on by default.  |
+
+__Exemple:__
+
+```php
+add_action( 'vc_before_init', 'your_name_integrate' );
+function your_name_integrate() {
+    vc_map( [
+        "name" => __( 'Custom Element', 'my-text-domain' ),
+        'base' => 'bartag',
+        'category' => __( 'Content', 'my-text-domain'),
+        'params' => [
+            [
+                'type'        => 'custom-switcher',
+                'param_name'  => 'custom_switcher_example',
+                'options'     => array(
+                    'open_value' => array(
+                        'label' => '',
+                        'on'    => __( 'Yes', "my-text-domain" ),
+                        'off'   => __( 'No', "my-text-domain" ),
+                    ),
+                ),
+                'value' => 'open_value',
             ],
         ]
     ] );
