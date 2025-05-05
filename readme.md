@@ -32,5 +32,7 @@ __Param Attributes:__
 
 | Name | Type | Requred | Description |
 |----------|----------|----------|----------|
-| min    | integer     | no     | Minimum value for input | 
-| max    | integer     | no     | Maximum value for input |
+| min    | float     | no     | Minimum value for input | 
+| max    | float     | no     | Maximum value for input |
+| step    | float     | no     | Input step when you click up/down buttons |
+| title    | string     | no     | Additional title in the end of input |
