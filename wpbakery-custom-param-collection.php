@@ -29,7 +29,7 @@ class Wpbackery_Custom_Param_Collection {
 	 * The single instance of the class.
 	 *
 	 * @since  1.0
-	 * @var WpbackeryCustomParamCollection|null
+	 * @var Wpbackery_Custom_Param_Collection|null
 	 */
 	public static $instance = null;
 

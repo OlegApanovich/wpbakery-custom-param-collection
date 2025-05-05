@@ -8,9 +8,9 @@ parameters:
     ignoreErrors:
     paths:
         - ../wpbakery-custom-param-collection.php
-        - ../includes
         - ../src
         - ../config
         - ../templates
+        - ../includes
     scanFiles:
         - ../vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
