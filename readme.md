@@ -1,46 +1,39 @@
 ## Description
 
-This WordPress plugin introduces well-crafted and fully customizable timeline addons for the [WPBakery Page Builder](https://wpbakery.com/). All addons support both the front-end and back-end WPBakery editors. 
+This is a collection of additional [custom element param types](https://kb.wpbakery.com/docs/developers-how-tos/create-new-param-type) for [WPBakery Page Builder](https://wpbakery.com/) wordpress plugin.
+By default, WPBakery already has a lot of [pre-defined element param types](https://kb.wpbakery.com/docs/inner-api/vc_map/#vc_map()-paramsArray), but if you need even more customization with your WPBakery editor custom elements, this is a great collection of additional element params for it.
 
-If you need to organize and present information in chronological order, making it easier for your users to understand the content on your web page, this plugin offers many addons to help with that. 
+## How To Install
 
-The WPBakery Page Builder plugin must be installed and activated to use this plugin. Once the required plugins are activated, the elements will be available for use in any WPBakery editor.
+### 1. As a regular WordPress plugin.
 
-### 1. ZigZag Timeline Addon.
+Clone this repo to your wp-content/plugins folder of your wordpress project.
+git clone 
+```bash
+git clone git@github.com:OlegApanovich/wpbakery-custom-param-collection.git
+```
+Then go to wordpress dashboard plugins section, and activate the newly installed "WPBakery Custom Param Collection" plugin there.
+That's it. Now you can specify any custom parameters from the list below in your custom WPBakery element, and they will appear in your element edit popup.
 
-![ZigZag Timeline Addon](assets/images/github-reame/screen-2.png)
+## Collection List
 
+### 1. Number
 
-### 2. Vertical Segment Timeline Addon.
+__type__ : custom-number
 
-![Vertical Segment Timeline Addon](assets/images/github-reame/screen-4.png)
+__Description__
+Regular input with a type number.
 
-### 3. Tailwind Vertical Classic Timeline Addon.
+__Screnshot:__
 
-![Tailwind Vertical Classic Timeline Addon](assets/images/github-reame/screen-6.png)
+![Number Param](assets/images/github-reame/screen-1.png)
 
-### 4. Left Side Stack Timeline.
+__Param Attributes:__
 
-![Vertical Segment Timeline Addon](assets/images/github-reame/screen-5.png)
-
-## Installation
-It's recommended to use the [official plugin page on WordPress.org](https://wordpress.org/plugins/chargewp-timeline-addons-for-wpbakery).
-
-Also, you can directly install the plugin from the GitHub repository.
-1. Clone the repository to the `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-
-That's it! If you go to any WPBakery Page Builder editor, you'll find new elements under the 'ChargeWp' tab in the 'Add Element' WPBakery popup.
-
-![](assets/images/github-reame/screen-1.png)
-
-## Requirements
-1. WPBakery Page Builder version 5.0+
-2. PHP version 7.0+
-3. Wordpress version 4.9+
-   
-## Browser support
-1. Chrome version 49+
-2. Safari 12+
-3. Firefox 78+
-4. Edge: Chromium-based Edge (79+)
+| Name | Type | Requred | Description |
+|----------|----------|----------|----------|
+| value    | string     | no     | Predefind value. Can be float like '0.1'. |
+| min    | string     | no     | Minimum value for input. Can be float like '0.1'. | 
+| max    | string     | no     | Maximum value for input. Can be float like '0.1'. |
+| step    | string     | no     | The Input step when you click the up/down buttons. Can be float like '0.1'. |
+| title    | string     | no     | Additional title in the end of input |
