@@ -32,6 +32,7 @@ __Param Attributes:__
 
 | Name | Type | Requred | Description | 
 |----------|----------|----------|----------|
+| param_name    | string     | yes     | Param slug. |
 | value    | string     | no     | Predefind value. Can be float like '0.1'. |
 | min    | string     | no     | Minimum value for input. Can be float like '0.1'. | 
 | max    | string     | no     | Maximum value for input. Can be float like '0.1'. |
@@ -74,17 +75,14 @@ Output the [native wordpress notice](https://developer.wordpress.org/block-edito
 
 __Screnshot:__
 
-![Number Param](assets/images/github-readme/screen-1.png)
+![Notice Param](assets/images/github-readme/screen-2.png)
 
 __Param Attributes:__
 
 | Name | Type | Requred | Description | 
 |----------|----------|----------|----------|
-| value    | string     | no     | Predefind value. Can be float like '0.1'. |
-| min    | string     | no     | Minimum value for input. Can be float like '0.1'. | 
-| max    | string     | no     | Maximum value for input. Can be float like '0.1'. |
-| step    | string     | no     | The Input step when you click the up/down buttons. Can be float like '0.1'. |
-| title    | string     | no     | Additional title in the end of input |
+| notice    | string     | no     | Notice text. |
+| level    | string     | no     | On a level depends the color of the notice UI. There are 4 value level available (info, warning, error, success). Default info.  |
 
 __Exemple:__
 
