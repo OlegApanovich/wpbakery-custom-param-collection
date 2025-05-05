@@ -14,6 +14,7 @@
  * @var WpbCustomParamCollection\ElementParams\ElementParamsAbstract $_this
  */
 
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <div class="ult-onoffswitch">

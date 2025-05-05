@@ -10,6 +10,7 @@
  * @var WpbCustomParamCollection\ElementParams\ElementParamsAbstract $_this
  */
 
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <input
