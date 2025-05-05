@@ -55,10 +55,10 @@ function your_name_integrate() {
                 'max'         => '5.5',
                 'step'        => '0.1',
                 'title'        => 'px',
-                'heading'     => esc_html__( 'Border Width', 'chargewp-timeline-addons-for-wpbakery' ),
+                'heading'     => esc_html__( 'Border Width', 'my-text-domain' ),
                 'param_name'  => 'marker_border_width',
-                'title'       => esc_html__( 'px', 'chargewp-timeline-addons-for-wpbakery' ),
-                'description' => esc_html__( 'Set custom border width in px from.', 'chargewp-timeline-addons-for-wpbakery' ),
+                'title'       => esc_html__( 'px', 'my-text-domain' ),
+                'description' => esc_html__( 'Set custom border width in px from.', 'my-text-domain' ),
             ]
         ]
     ] );
