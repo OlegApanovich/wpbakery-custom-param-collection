@@ -1,6 +1,6 @@
 ## Description
 
-This is a collection of additional [WPBakery Page Builder](https://wpbakery.com/) [custom element param types]([https://wpbakery.com/](https://kb.wpbakery.com/docs/developers-how-tos/create-new-param-type) for [WPBakery Page Builder](https://wpbakery.com/) wordpress plugin.
+This is a collection of additional [custom element param types]([https://wpbakery.com/](https://kb.wpbakery.com/docs/developers-how-tos/create-new-param-type)) for [WPBakery Page Builder](https://wpbakery.com/) wordpress plugin.
 By default, WPBakery already has a lot of [pre-defined element param types] (https://kb.wpbakery.com/docs/inner-api/vc_map/#vc_map()-paramsArray), but if you need even more customization with your WPBakery editor custom elements, this is a great collection of additional element params for it.
 
 ## How to install
