@@ -37,3 +37,30 @@ __Param Attributes:__
 | max    | string     | no     | Maximum value for input. Can be float like '0.1'. |
 | step    | string     | no     | The Input step when you click the up/down buttons. Can be float like '0.1'. |
 | title    | string     | no     | Additional title in the end of input |
+
+__Exemple:__
+
+```php
+add_action( 'vc_before_init', 'your_name_integrate' );
+function your_name_integrate() {
+    vc_map( [
+        "name" => __( "Custom Element", "my-text-domain" ),
+        "base" => "bartag",
+        "category" => __( "Content", "my-text-domain"),
+        "params" => [
+            [
+                'type'        => 'custom-number',
+                'value'         => '2.1',
+                'min'         => '0.1',
+                'max'         => '5.5',
+                'step'        => '0.1',
+                'title'        => 'px',
+                'heading'     => esc_html__( 'Border Width', 'chargewp-timeline-addons-for-wpbakery' ),
+                'param_name'  => 'marker_border_width',
+                'title'       => esc_html__( 'px', 'chargewp-timeline-addons-for-wpbakery' ),
+                'description' => esc_html__( 'Set custom border width in px from.', 'chargewp-timeline-addons-for-wpbakery' ),
+            ]
+        ]
+    ] );
+}
+```
