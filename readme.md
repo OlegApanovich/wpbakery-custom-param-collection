@@ -1,7 +1,7 @@
 ## Description
 
 This is a collection of additional [custom element param types] (https://kb.wpbakery.com/docs/developers-how-tos/create-new-param-type) for [WPBakery Page Builder](https://wpbakery.com/) wordpress plugin.
-By default, WPBakery already has a lot of [pre-defined element param types](https://kb.wpbakery.com/docs/inner-api/vc_map/#vc_map()-paramsArray), but if you need even more customization with your WPBakery editor custom elements, this is a great collection of additional element params for it.
+By default, WPBakery already has a lot of [pre-defined element param types] (https://kb.wpbakery.com/docs/inner-api/vc_map/#vc_map()-paramsArray), but if you need even more customization with your WPBakery editor custom elements, this is a great collection of additional element params for it.
 
 ## How to install
 
@@ -12,5 +12,5 @@ git clone
 ```bash
 git clone git@github.com:OlegApanovich/wpbakery-custom-param-collection.git
 ```
-Then go to wordpress dashboard plugins section, and activate the newly installed plugin here.
-That's it. Now you can specify any custom parameters from the list below in your custom WPBakery element, and they appear in your element edit popup.
+Then go to wordpress dashboard plugins section, and activate the newly installed "WPBakery Custom Param Collection" plugin there.
+That's it. Now you can specify any custom parameters from the list below in your custom WPBakery element, and they will appear in your element edit popup.
