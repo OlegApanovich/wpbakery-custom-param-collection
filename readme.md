@@ -82,7 +82,7 @@ __Param Attributes:__
 | Name | Type | Requred | Description | 
 |----------|----------|----------|----------|
 | notice    | string     | no     | Notice text. |
-| level    | string     | no     | On a level depends the color of the notice UI. There are 4 value level available (info, warning, error, success). Default info.  |
+| level    | string     | no     | On a level depends the color of the notice UI. There are 4 value levels available (info, warning, error, success). If the level is not specified, the notice will be grey.  |
 
 __Exemple:__
 
@@ -95,17 +95,34 @@ function your_name_integrate() {
         "category" => __( "Content", "my-text-domain"),
         "params" => [
             [
-                'type'        => 'custom-number',
-                'value'         => '2.1',
-                'min'         => '0.1',
-                'max'         => '5.5',
-                'step'        => '0.1',
-                'title'        => 'px',
-                'heading'     => esc_html__( 'Border Width', 'my-text-domain' ),
-                'param_name'  => 'marker_border_width',
-                'title'       => esc_html__( 'px', 'my-text-domain' ),
-                'description' => esc_html__( 'Set custom border width in px from.', 'my-text-domain' ),
-            ]
+                'type'        => 'custom-notice',
+                'param_name'  => 'custom_notice_info',
+                'level'       => 'info',
+                'notice'      => __('Here is info notice.', 'my-text-domain'),
+            ],
+            [
+                'type'        => 'custom-notice',
+                'param_name'  => 'custom_notice_warning',
+                'level'       => 'warning',
+                'notice'      => __('Here is warning notice.', 'my-text-domain'),
+            ],
+            [
+                'type'        => 'custom-notice',
+                'param_name'  => 'custom_notice_error',
+                'level'       => 'error',
+                'notice'      => __('Here is error notice.', 'my-text-domain'),
+            ],
+            [
+                'type'        => 'custom-notice',
+                'param_name'  => 'custom_notice_success',
+                'level'       => 'success',
+                'notice'      => __('Here is success notice.', 'my-text-domain'),
+            ],
+            [
+                'type'        => 'custom-notice',
+                'param_name'  => 'custom_notice_empty',
+                'notice'      => __('Here is empty level notice.', 'my-text-domain'),
+            ],
         ]
     ] );
 }
