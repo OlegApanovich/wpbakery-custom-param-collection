@@ -43,7 +43,7 @@ class Switcher extends ElementParamsAbstract {
 	public function param_output( array $settings, $value ): string {
 		$output   = '';
 		$settings = $this->merge_default_settings( $settings );
-		if ( ! is_array( $settings['options'] ) && $settings['options'] > 0 ) {
+		if ( ! is_array( $settings['options'] ) ) {
 			return $output;
 		}
 
