@@ -32,8 +32,8 @@ __Param Attributes:__
 
 | Name | Type | Requred | Description |
 |----------|----------|----------|----------|
-| value    | string     | no     | Predefind value |
-| min    | string     | no     | Minimum value for input | 
-| max    | string     | no     | Maximum value for input |
-| step    | string     | no     | Input step when you click up/down buttons |
+| value    | string     | no     | Predefind value. Can be float like '0.1'. |
+| min    | string     | no     | Minimum value for input. Can be float like '0.1'. | 
+| max    | string     | no     | Maximum value for input. Can be float like '0.1'. |
+| step    | string     | no     | The Input step when you click the up/down buttons. Can be float like '0.1'. |
 | title    | string     | no     | Additional title in the end of input |
