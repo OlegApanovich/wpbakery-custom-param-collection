@@ -32,6 +32,7 @@ __Param Attributes:__
 
 | Name | Type | Requred | Description |
 |----------|----------|----------|----------|
+| value    | string     | no     | Predefind value |
 | min    | string     | no     | Minimum value for input | 
 | max    | string     | no     | Maximum value for input |
 | step    | string     | no     | Input step when you click up/down buttons |
