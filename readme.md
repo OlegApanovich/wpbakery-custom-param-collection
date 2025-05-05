@@ -21,14 +21,14 @@ That's it. Now you can specify any custom parameters from the list below in your
 
 __type__ : custom-number
 
-__description:__
+__Description:__
 Regular input with a type number.
 
-__screnshot:__
+__Screnshot:__
 
 ![Number Param](assets/images/github-readme/screen-1.png)
 
-__param Attributes:__
+__Param Attributes:__
 
 | Name | Type | Requred | Description | 
 |----------|----------|----------|----------|
@@ -39,7 +39,7 @@ __param Attributes:__
 | step    | string     | no     | The Input step when you click the up/down buttons. Can be float like '0.1'. |
 | title    | string     | no     | Additional title in the end of input |
 
-__exemple:__
+__Exemple:__
 
 ```php
 add_action( 'vc_before_init', 'your_name_integrate' );
@@ -70,14 +70,14 @@ function your_name_integrate() {
 
 __type__ : custom-notice
 
-__description__
+__Description__
 Output the [native wordpress notice](https://developer.wordpress.org/block-editor/how-to-guides/notices/) looks like text output to the element edit window.
 
-__screnshot:__
+__Screnshot:__
 
 ![Notice Param](assets/images/github-readme/screen-2.png)
 
-__param Attributes:__
+__Param Attributes:__
 
 | Name | Type | Requred | Description | 
 |----------|----------|----------|----------|
@@ -85,7 +85,7 @@ __param Attributes:__
 | notice    | string     | no     | Notice text. |
 | level    | string     | no     | On a level depends the color of the notice UI. There are 4 value levels available (info, warning, error, success). If the level is not specified, the notice will be grey.  |
 
-__exemple:__
+__Exemple:__
 
 ```php
 add_action( 'vc_before_init', 'your_name_integrate' );
@@ -133,14 +133,14 @@ function your_name_integrate() {
 
 __type__ : custom-switcher
 
-__description:__
+__Description:__
 Output the yes/no type switcher.
 
-__screnshot:__
+__Screnshot:__
 
 ![Notice Param](assets/images/github-readme/screen-3.png)
 
-__param Attributes:__
+__Param Attributes:__
 
 | Name | Type | Requred | Description | 
 |----------|----------|----------|----------|
@@ -148,7 +148,7 @@ __param Attributes:__
 | option    | array     | yes     | Switcher options |
 | value    | string     | no     | Set here the value the same as the options key if you wanna switch on by default.  |
 
-__exemple:__
+__Exemple:__
 
 ```php
 add_action( 'vc_before_init', 'your_name_integrate' );
