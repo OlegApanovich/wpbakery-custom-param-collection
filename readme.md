@@ -8,7 +8,6 @@ By default, WPBakery already has a lot of [pre-defined element param types](http
 ### 1. As a regular WordPress plugin.
 
 Clone this repo to your wp-content/plugins folder of your wordpress project.
-git clone 
 ```bash
 git clone git@github.com:OlegApanovich/wpbakery-custom-param-collection.git
 ```
