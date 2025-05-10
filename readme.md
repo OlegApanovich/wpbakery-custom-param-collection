@@ -15,7 +15,7 @@ git clone git@github.com:OlegApanovich/wpbakery-custom-param-collection.git
 Then go to wordpress dashboard plugins section, and activate the newly installed "WPBakery Custom Param Collection" plugin there.
 That's it. Now you can specify any custom parameters from the list below in your custom WPBakery element, and they will appear in your element edit popup.
 
-### 1. Include in WordPress theme/plugin
+### 2. Include in WordPress theme/plugin
 Clone this repo to your theme/plugin folder.
 Then, if you include to the theme, add this code to your functions.php file, or if you use a plugin, add it to the main plugin file.
 ```php
