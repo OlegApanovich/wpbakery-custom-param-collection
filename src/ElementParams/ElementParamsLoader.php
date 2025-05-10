@@ -56,7 +56,7 @@ class ElementParamsLoader {
 			$prefix = $this->param_prefix;
 		}
 
-		return $prefix;
+		return (string) apply_filters( 'wpcustomparamcollection_get_param_prefix', $prefix );
 	}
 
 	/**

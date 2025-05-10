@@ -23,7 +23,7 @@ class Plugin {
 	 * @since 1.0
 	 */
 	public function init() {
-		add_action( 'admin_init', [ $this, 'init_custom_element_params' ] );
+		add_action( 'admin_init', [ $this, 'init_custom_element_params' ], 20 );
 	}
 
 	/**
