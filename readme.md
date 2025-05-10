@@ -9,7 +9,7 @@ By default, WPBakery already has a lot of [pre-defined element param types](http
 
 Clone this repo to your wp-content/plugins folder of your wordpress project.
 ```bash
-git clone git@github.com:OlegApanovich/wpbakery-custom-param-collection.git
+git clone https://github.com/OlegApanovich/wpbakery-custom-param-collection.git
 ```
 Then go to wordpress dashboard plugins section, and activate the newly installed "WPBakery Custom Param Collection" plugin there.
 That's it. Now you can specify any custom parameters from the list below in your custom WPBakery element, and they will appear in your element edit popup.
@@ -18,7 +18,7 @@ That's it. Now you can specify any custom parameters from the list below in your
 Clone this repo to your theme/plugin folder.
 
 ```bash
-git clone git@github.com:OlegApanovich/wpbakery-custom-param-collection.git
+git clone https://github.com/OlegApanovich/wpbakery-custom-param-collection.git
 ```
 
 Then, if you include to the theme, add this code to your functions.php file, or if you use a plugin, add it to the main plugin file.
