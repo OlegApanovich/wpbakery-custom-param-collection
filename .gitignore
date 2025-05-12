@@ -42,3 +42,4 @@ vendor/phpstan/
 vendor/rarst/
 vendor/squizlabs/
 vendor/wp-coding-standards/
+vendor/composer/installed.json

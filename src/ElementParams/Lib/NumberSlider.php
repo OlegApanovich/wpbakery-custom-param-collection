@@ -1,8 +1,8 @@
 <?php
 /**
- * Custom param 'Number' for wpbakery element.
+ * Custom param 'Number Slider' for wpbakery element.
  *
- * @see https://github.com/OlegApanovich/wpbakery-custom-param-collection?tab=readme-ov-file#1-number
+ * @see https://kb.wpbakery.com/docs/inner-api/vc_add_shortcode_param
  * @since 1.0
  */
 
@@ -15,7 +15,7 @@ use WpbCustomParamCollection\ElementParams\ElementParamsAbstract;
  *
  * @since 1.0
  */
-class Number extends ElementParamsAbstract {
+class NumberSlider extends ElementParamsAbstract {
 	/**
 	 * Get param default attr list.
 	 *
@@ -29,7 +29,6 @@ class Number extends ElementParamsAbstract {
 			'min',
 			'max',
 			'step',
-			'title',
 			'class',
 		];
 	}
@@ -49,5 +48,21 @@ class Number extends ElementParamsAbstract {
 		}
 
 		return $values;
+	}
+
+	/**
+	 * Get param classes.
+	 *
+	 * @param array  $settings
+	 * @param string $current_value
+	 * @return string
+	 * @since 1.0
+	 */
+	public function get_value( array $settings, string $current_value ): string {
+		if ( 'open_value' !== $current_value ) {
+			return $current_value;
+		}
+
+		return '' === $settings['min'] ? '0' : $settings['min'];
 	}
 }
