@@ -53,7 +53,7 @@ abstract class ElementParamsAbstract {
 	public function param_output( array $settings, $value ): string {
 		$settings = $this->merge_default_settings( $settings );
 
-		return wpbcustomparamcollection_get_template(
+		$output = wpbcustomparamcollection_get_template(
 			$this->get_param_template_name(),
 			[
 				'value'    => $value,
@@ -61,6 +61,18 @@ abstract class ElementParamsAbstract {
 				'_this'    => $this,
 			]
 		);
+
+		$path        = '/css/params/' . $this->param_slug . '.css';
+		$param_style = WPBCUSTOMPARAMCCOLECTION_ASSETS_DIR . $path;
+
+		if ( ! file_exists( $param_style ) ) {
+			return $output;
+		}
+
+        // phpcs:ignore:WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$output .= '<style>' . file_get_contents( $param_style ) . '</style>';
+
+		return $output;
 	}
 
 	/**

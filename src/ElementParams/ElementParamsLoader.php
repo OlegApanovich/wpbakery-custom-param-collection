@@ -33,17 +33,6 @@ class ElementParamsLoader {
 	public $param_prefix;
 
 	/**
-	 * Set param prefix.
-	 *
-	 * @since 1.0
-	 * @param string $param_prefix
-	 * @return void
-	 */
-	public function set_param_prefix( string $param_prefix ) {
-		$this->param_prefix = $param_prefix;
-	}
-
-	/**
 	 * Get param prefix.
 	 *
 	 * @since 1.0
@@ -89,6 +78,8 @@ class ElementParamsLoader {
 
 		$param_script = $this->get_param_script( $param_slug );
 		$param_slug   = $this->get_param_prefix() . '-' . $param_slug;
+		// as wpbakery does not have a system to include param styles we output styles together with param output.
+		// @see ElementParamsAbstract::param_output().
 
 		return vc_add_shortcode_param( $param_slug, [ $param_instance, 'param_output' ], $param_script );
 	}
