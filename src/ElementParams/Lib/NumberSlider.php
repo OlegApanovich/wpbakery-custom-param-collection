@@ -29,6 +29,7 @@ class NumberSlider extends ElementParamsAbstract {
 			'min',
 			'max',
 			'step',
+			'title',
 			'class',
 		];
 	}

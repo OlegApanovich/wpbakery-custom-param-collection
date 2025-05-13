@@ -5,6 +5,7 @@
     gap: 1rem;
     font-size: 16px;
     font-family: sans-serif;
+    margin-top: 10px;
 }
 
 .wcp-number-slider-wrapper .wcp-number-slider {
@@ -50,7 +51,7 @@
     border: 2px solid #888;
 }
 
-.wcp-number-slider-wrapper .wcp-number {
+.wcp-number-slider-wrapper .wcp-number-slider-input {
     width: 10ch;
     background: #fff;
     color: #000;
@@ -64,5 +65,10 @@
     .wcp-number-slider-wrapper {
         flex-direction: column;
         align-items: stretch;
+    }
+    .wcp-number-with-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 }
