@@ -84,7 +84,7 @@ function your_name_integrate() {
 __type__ : custom-notice
 
 __Description__
-Output the [native wordpress notice](https://developer.wordpress.org/block-editor/how-to-guides/notices/) looks like text output to the element edit window.
+The [native wordpress notice](https://developer.wordpress.org/block-editor/how-to-guides/notices/) looks like text output to the element edit window.
 
 __Screnshot:__
 
@@ -147,7 +147,7 @@ function your_name_integrate() {
 __type__ : custom-switcher
 
 __Description:__
-Output the yes/no type switcher.
+Yes/no type switcher.
 
 __Screnshot:__
 
@@ -182,6 +182,52 @@ function your_name_integrate() {
                     ),
                 ),
                 'value' => 'open_value',
+            ],
+        ]
+    ] );
+}
+```
+
+### 4. Number Slider
+
+__type__ : custom-number-slider
+
+__Description:__
+Regular input with a type number and a slider that helps regulate the input value.
+
+__Screnshot:__
+
+![Notice Param](assets/images/github-readme/screen-4.png)
+
+__Param Attributes:__
+
+| Name | Type | Requred | Description | 
+|----------|----------|----------|----------|
+| param_name    | string     | yes     | Param slug. |
+| value    | string     | no     | Predefind value. Can be float like '0.1'. |
+| min    | string     | no     | Minimum value for input. Can be float like '0.1'. | 
+| max    | string     | no     | Maximum value for input. Can be float like '0.1'. |
+| step    | string     | no     | The Input step when you click the up/down buttons. Can be float like '0.1'. |
+| title    | string     | no     | Additional title in the end of input |
+
+__Exemple:__
+
+```php
+add_action( 'vc_before_init', 'your_name_integrate' );
+function your_name_integrate() {
+    vc_map( [
+        "name" => __( 'Custom Element', 'my-text-domain' ),
+        'base' => 'bartag',
+        'category' => __( 'Content', 'my-text-domain'),
+        'params' => [
+            [
+                'type'        => 'custom-number-slider',
+                'param_name'  => 'custom_number_slider_example',
+                'heading' => 'Here some title',
+                'title' => 'px',
+                'min' => 11,
+                'max' => 100,
+                'step' => 1,
             ],
         ]
     ] );
