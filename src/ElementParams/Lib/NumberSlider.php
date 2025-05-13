@@ -60,7 +60,7 @@ class NumberSlider extends ElementParamsAbstract {
 	 * @since 1.0
 	 */
 	public function get_value( array $settings, string $current_value ): string {
-		if ( 'open_value' !== $current_value ) {
+		if ( '' !== $current_value ) {
 			return $current_value;
 		}
 
