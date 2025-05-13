@@ -20,6 +20,6 @@ defined( 'ABSPATH' ) || exit;
 	step="<?php echo esc_attr( $settings['step'] ); ?>"
 	class="<?php echo esc_attr( $_this->get_param_classes( $settings ) ); ?>"
 	name="<?php echo esc_attr( $settings['param_name'] ); ?>"
-    value="<?php echo esc_attr( $value ); ?>"
+	value="<?php echo esc_attr( $value ); ?>"
 	style="max-width:100px; margin-right: 10px;"
 /><?php echo esc_html( $settings['title'] ); ?>
