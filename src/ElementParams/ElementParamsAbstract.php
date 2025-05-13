@@ -62,6 +62,17 @@ abstract class ElementParamsAbstract {
 			]
 		);
 
+		return $this->attach_styles_to_param_output( $output );
+	}
+
+	/**
+	 * Attach param styles to param output.
+	 *
+	 * @param string $output
+	 * @return string
+	 * @since 1.0
+	 */
+	public function attach_styles_to_param_output( $output ): string {
 		$path        = '/css/params/' . $this->param_slug . '.css';
 		$param_style = WPBCUSTOMPARAMCCOLECTION_ASSETS_DIR . $path;
 
@@ -118,7 +129,7 @@ abstract class ElementParamsAbstract {
 	 * @param array $settings
 	 * @return string
 	 */
-	public function get_param_classes( $settings ) {
+	public function get_param_classes( array $settings ): string {
 		$class_list = [
 			'wpb_vc_param_value',
 			$settings['param_name'],

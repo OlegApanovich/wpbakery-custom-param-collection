@@ -79,7 +79,7 @@ class Switcher extends ElementParamsAbstract {
 			]
 		);
 
-		return $output;
+		return $this->attach_styles_to_param_output( $output );
 	}
 
 	/**

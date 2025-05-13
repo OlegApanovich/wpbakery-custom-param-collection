@@ -54,13 +54,13 @@ class NumberSlider extends ElementParamsAbstract {
 	/**
 	 * Get param classes.
 	 *
-	 * @param array  $settings
-	 * @param string $current_value
+	 * @param array       $settings
+	 * @param string|null $current_value
 	 * @return string
 	 * @since 1.0
 	 */
-	public function get_value( array $settings, string $current_value ): string {
-		if ( '' !== $current_value ) {
+	public function get_value( array $settings, $current_value ): string {
+		if ( null !== $current_value ) {
 			return $current_value;
 		}
 
