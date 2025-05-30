@@ -73,7 +73,6 @@ function your_name_integrate() {
                 'min'         => '0.1',
                 'max'         => '5.5',
                 'step'        => '0.1',
-                'title'        => 'px',
                 'heading'     => esc_html__( 'Border Width', 'my-text-domain' ),
                 'param_name'  => 'marker_border_width',
                 'title'       => esc_html__( 'px', 'my-text-domain' ),
