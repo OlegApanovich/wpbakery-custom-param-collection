@@ -33,6 +33,11 @@ add_action( 'admin_init', function() {
 } );
 ```
 
+## Requirements
+1. WPBakery Page Builder version 5.0+
+2. PHP version 7.0+
+3. Wordpress version 4.9+
+
 ## Collection List
 
 ### 1. Number
