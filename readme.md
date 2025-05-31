@@ -181,7 +181,7 @@ function your_name_integrate() {
         'category' => __( 'Content', 'my-text-domain'),
         'params' => [
             [
-                'type'        => 'custom-switcher',
+                'type'        => 'custom_switcher',
                 'param_name'  => 'custom_switcher_example',
                 'options'     => array(
                     'open_value' => array(
