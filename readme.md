@@ -73,7 +73,7 @@ function your_name_integrate() {
         "category" => __( "Content", "my-text-domain"),
         "params" => [
             [
-                'type'        => 'custom-number',
+                'type'        => 'custom_number',
                 'value'         => '2.1',
                 'min'         => '0.1',
                 'max'         => '5.5',
