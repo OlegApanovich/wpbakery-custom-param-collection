@@ -42,7 +42,7 @@ add_action( 'admin_init', function() {
 
 ### 1. Number
 
-__type__ : custom-number
+__type__ : custom_number
 
 __Description:__
 Regular input with a type number.
@@ -90,7 +90,7 @@ function your_name_integrate() {
 
 ### 2. Notice
 
-__type__ : custom-notice
+__type__ : custom_notice
 
 __Description__
 The [native wordpress notice](https://developer.wordpress.org/block-editor/how-to-guides/notices/) looks like text output to the element edit window.
@@ -153,7 +153,7 @@ function your_name_integrate() {
 
 ### 3. Switcher
 
-__type__ : custom-switcher
+__type__ : custom_switcher
 
 __Description:__
 Yes/no type switcher.
@@ -199,7 +199,7 @@ function your_name_integrate() {
 
 ### 4. Number Slider
 
-__type__ : custom-number-slider
+__type__ : custom_number_slider
 
 __Description:__
 Regular input with a type number and a slider that helps regulate the input value.
