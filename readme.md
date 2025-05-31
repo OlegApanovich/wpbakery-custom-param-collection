@@ -33,16 +33,11 @@ add_action( 'admin_init', function() {
 } );
 ```
 
-## Requirements
-1. WPBakery Page Builder version 5.0+
-2. PHP version 7.0+
-3. Wordpress version 4.9+
-
 ## Collection List
 
 ### 1. Number
 
-__type__ : custom_number
+__type__ : custom-number
 
 __Description:__
 Regular input with a type number.
@@ -73,11 +68,12 @@ function your_name_integrate() {
         "category" => __( "Content", "my-text-domain"),
         "params" => [
             [
-                'type'        => 'custom_number',
+                'type'        => 'custom-number',
                 'value'         => '2.1',
                 'min'         => '0.1',
                 'max'         => '5.5',
                 'step'        => '0.1',
+                'title'        => 'px',
                 'heading'     => esc_html__( 'Border Width', 'my-text-domain' ),
                 'param_name'  => 'marker_border_width',
                 'title'       => esc_html__( 'px', 'my-text-domain' ),
@@ -90,7 +86,7 @@ function your_name_integrate() {
 
 ### 2. Notice
 
-__type__ : custom_notice
+__type__ : custom-notice
 
 __Description__
 The [native wordpress notice](https://developer.wordpress.org/block-editor/how-to-guides/notices/) looks like text output to the element edit window.
@@ -118,31 +114,31 @@ function your_name_integrate() {
         "category" => __( "Content", "my-text-domain"),
         "params" => [
             [
-                'type'        => 'custom_notice',
+                'type'        => 'custom-notice',
                 'param_name'  => 'custom_notice_info',
                 'level'       => 'info',
                 'notice'      => __('Here is info notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom_notice',
+                'type'        => 'custom-notice',
                 'param_name'  => 'custom_notice_warning',
                 'level'       => 'warning',
                 'notice'      => __('Here is warning notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom_notice',
+                'type'        => 'custom-notice',
                 'param_name'  => 'custom_notice_error',
                 'level'       => 'error',
                 'notice'      => __('Here is error notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom_notice',
+                'type'        => 'custom-notice',
                 'param_name'  => 'custom_notice_success',
                 'level'       => 'success',
                 'notice'      => __('Here is success notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom_notice',
+                'type'        => 'custom-notice',
                 'param_name'  => 'custom_notice_empty',
                 'notice'      => __('Here is empty level notice.', 'my-text-domain'),
             ],
@@ -153,7 +149,7 @@ function your_name_integrate() {
 
 ### 3. Switcher
 
-__type__ : custom_switcher
+__type__ : custom-switcher
 
 __Description:__
 Yes/no type switcher.
@@ -181,7 +177,7 @@ function your_name_integrate() {
         'category' => __( 'Content', 'my-text-domain'),
         'params' => [
             [
-                'type'        => 'custom_switcher',
+                'type'        => 'custom-switcher',
                 'param_name'  => 'custom_switcher_example',
                 'options'     => array(
                     'open_value' => array(
@@ -199,7 +195,7 @@ function your_name_integrate() {
 
 ### 4. Number Slider
 
-__type__ : custom_number_slider
+__type__ : custom-number-slider
 
 __Description:__
 Regular input with a type number and a slider that helps regulate the input value.
@@ -230,7 +226,7 @@ function your_name_integrate() {
         'category' => __( 'Content', 'my-text-domain'),
         'params' => [
             [
-                'type'        => 'custom_number_slider',
+                'type'        => 'custom-number-slider',
                 'param_name'  => 'custom_number_slider_example',
                 'heading' => 'Here some title',
                 'title' => 'px',

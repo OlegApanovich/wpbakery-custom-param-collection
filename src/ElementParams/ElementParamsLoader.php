@@ -77,7 +77,7 @@ class ElementParamsLoader {
 		$param_instance = $this->get_param_instance( $param_slug );
 
 		$param_script = $this->get_param_script( $param_slug );
-		$param_slug   = $this->get_param_prefix() . '-' . $param_slug;
+		$param_slug   = $this->get_param_prefix() . '_' . $param_slug;
 		// as wpbakery does not have a system to include param styles we output styles together with param output.
 		// @see ElementParamsAbstract::param_output().
 
@@ -107,7 +107,7 @@ class ElementParamsLoader {
 	 * @since 1.0
 	 */
 	public function get_param_instance( string $param_slug ): ElementParamsAbstract {
-		$param_class = $this->namespace_prefix . str_replace( ' ', '', ucwords( str_replace( '-', ' ', $param_slug ) ) );
+		$param_class = $this->namespace_prefix . str_replace( ' ', '', ucwords( str_replace( '_', ' ', $param_slug ) ) );
 
 		return new $param_class( $param_slug );
 	}

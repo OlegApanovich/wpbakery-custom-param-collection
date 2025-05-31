@@ -8,7 +8,8 @@
 
 return [
 	'number',
-	'number-slider',
+	'number_slider',
 	'switcher',
 	'notice',
+	'wysiwyg',
 ];

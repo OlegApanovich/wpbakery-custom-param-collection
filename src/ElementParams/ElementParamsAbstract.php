@@ -43,6 +43,23 @@ abstract class ElementParamsAbstract {
 	}
 
 	/**
+	 * Get param default attr list.
+	 *
+	 * @since 1.0
+	 * @return array
+	 */
+	abstract public function get_param_default_attr_list(): array;
+
+	/**
+	 * Get default attr values list.
+	 *
+	 * @param array $settings
+	 * @return array
+	 * @since 1.0
+	 */
+	abstract public function merge_default_settings( array $settings ): array;
+
+	/**
 	 * Param output.
 	 *
 	 * @param array $settings
@@ -85,23 +102,6 @@ abstract class ElementParamsAbstract {
 
 		return $output;
 	}
-
-	/**
-	 * Get param default attr list.
-	 *
-	 * @since 1.0
-	 * @return array
-	 */
-	abstract public function get_param_default_attr_list(): array;
-
-	/**
-	 * Get default attr values list.
-	 *
-	 * @param array $settings
-	 * @return array
-	 * @since 1.0
-	 */
-	abstract public function merge_default_settings( array $settings ): array;
 
 	/**
 	 * Get param slug.
