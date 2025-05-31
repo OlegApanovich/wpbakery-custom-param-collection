@@ -230,7 +230,7 @@ function your_name_integrate() {
         'category' => __( 'Content', 'my-text-domain'),
         'params' => [
             [
-                'type'        => 'custom-number-slider',
+                'type'        => 'custom_number_slider',
                 'param_name'  => 'custom_number_slider_example',
                 'heading' => 'Here some title',
                 'title' => 'px',
