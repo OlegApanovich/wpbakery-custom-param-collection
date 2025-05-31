@@ -118,31 +118,31 @@ function your_name_integrate() {
         "category" => __( "Content", "my-text-domain"),
         "params" => [
             [
-                'type'        => 'custom-notice',
+                'type'        => 'custom_notice',
                 'param_name'  => 'custom_notice_info',
                 'level'       => 'info',
                 'notice'      => __('Here is info notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom-notice',
+                'type'        => 'custom_notice',
                 'param_name'  => 'custom_notice_warning',
                 'level'       => 'warning',
                 'notice'      => __('Here is warning notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom-notice',
+                'type'        => 'custom_notice',
                 'param_name'  => 'custom_notice_error',
                 'level'       => 'error',
                 'notice'      => __('Here is error notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom-notice',
+                'type'        => 'custom_notice',
                 'param_name'  => 'custom_notice_success',
                 'level'       => 'success',
                 'notice'      => __('Here is success notice.', 'my-text-domain'),
             ],
             [
-                'type'        => 'custom-notice',
+                'type'        => 'custom_notice',
                 'param_name'  => 'custom_notice_empty',
                 'notice'      => __('Here is empty level notice.', 'my-text-domain'),
             ],
