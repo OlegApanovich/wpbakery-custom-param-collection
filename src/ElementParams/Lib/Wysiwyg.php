@@ -17,30 +17,17 @@ use WpbCustomParamCollection\ElementParams\ElementParamsAbstract;
  */
 class Wysiwyg extends ElementParamsAbstract {
 	/**
-	 * Get param default attr list.
-	 *
-	 * @since 1.1
-	 * @return array
-	 */
-	public function get_param_default_attr_list(): array {
-		return [
-			'minimal',
-			'type',
-			'scope',
-		];
-	}
-
-	/**
 	 * Param output.
 	 *
-	 * @param array $settings
+	 * @param array $settings_initial
 	 * @param mixed $value
 	 * @return string
-	 * @since 1.1
 	 */
-	public function param_output( array $settings, $value ): string {
-		$settings = $this->merge_default_settings( $settings );
-		$output   = wpbcustomparamcollection_get_template(
+	public function param_output( array $settings_initial, $value ): string {
+		$settings = $this->get_default_settings( $settings_initial );
+		$settings = $this->get_specific_param_settings( $settings );
+
+		$output = wpbcustomparamcollection_get_template(
 			$this->get_param_template_name(),
 			[
 				'value'      => $value,
@@ -54,42 +41,34 @@ class Wysiwyg extends ElementParamsAbstract {
 	}
 
 	/**
-	 * Get params values.
+	 * Get specific param settings.
 	 *
 	 * @param array $settings
 	 * @return array
-	 * @since 1.1
 	 */
-	public function merge_default_settings( array $settings ): array {
-		$values = [];
-
-		foreach ( $this->get_param_default_attr_list() as $name ) {
-			$values['minimal'] = isset( $settings['minimal'] ) ? $settings['minimal'] : 'false';
-			$type              = isset( $settings['type'] ) ? $settings['type'] : '';
-			$values['scope']   = isset( $settings['scope'] ) ? $settings['scope'] : [];
-			// Editor Settings.
-			$values['use_tabs']       = isset( $values['scope']['tabs'] ) ? $values['scope']['tabs'] : 'true';
-			$values['use_menubar']    = isset( $values['scope']['menubar'] ) ? $values['scope']['menubar'] : 'true';
-			$values['use_media']      = isset( $values['scope']['media'] ) ? $values['scope']['media'] : 'true';
-			$values['use_link']       = isset( $values['scope']['link'] ) ? $values['scope']['link'] : 'true';
-			$values['use_lists']      = isset( $values['scope']['lists'] ) ? $values['scope']['lists'] : 'true';
-			$values['use_blockquote'] = isset( $values['scope']['blockquote'] ) ? $values['scope']['blockquote'] : 'true';
-			$values['use_textcolor']  = isset( $values['scope']['textcolor'] ) ? $values['scope']['textcolor'] : 'true';
-			$values['use_background'] = isset( $values['scope']['background'] ) ? $values['scope']['background'] : 'true';
-			$values['use_height']     = isset( $values['scope']['height'] ) ? $values['scope']['height'] : 250;
-			$values['use_rootblock']  = isset( $values['scope']['rootblock'] ) ? $values['scope']['rootblock'] : 'p';
-			// Minimal Usage Override.
-			if ( 'true' === $values['minimal'] ) {
-				$values['use_menubar']    = 'false';
-				$values['use_media']      = 'false';
-				$values['use_link']       = 'false';
-				$values['use_blockquote'] = 'false';
-				$values['use_lists']      = 'false';
-				$values['use_background'] = 'false';
-				$values['use_height']     = 150;
-			}
+	public function get_specific_param_settings( array $settings ): array {
+		// Editor Settings.
+		$settings['scope']['use_tabs']       = isset( $settings['scope']['tabs'] ) ? $settings['scope']['tabs'] : 'true';
+		$settings['scope']['use_menubar']    = isset( $settings['scope']['menubar'] ) ? $settings['scope']['menubar'] : 'true';
+		$settings['scope']['use_media']      = isset( $settings['scope']['media'] ) ? $settings['scope']['media'] : 'true';
+		$settings['scope']['use_link']       = isset( $settings['scope']['link'] ) ? $settings['scope']['link'] : 'true';
+		$settings['scope']['use_lists']      = isset( $settings['scope']['lists'] ) ? $settings['scope']['lists'] : 'true';
+		$settings['scope']['use_blockquote'] = isset( $settings['scope']['blockquote'] ) ? $settings['scope']['blockquote'] : 'true';
+		$settings['scope']['use_textcolor']  = isset( $settings['scope']['textcolor'] ) ? $settings['scope']['textcolor'] : 'true';
+		$settings['scope']['use_background'] = isset( $settings['scope']['background'] ) ? $settings['scope']['background'] : 'true';
+		$settings['scope']['use_height']     = isset( $settings['scope']['height'] ) ? $settings['scope']['height'] : 250;
+		$settings['scope']['use_rootblock']  = isset( $settings['scope']['rootblock'] ) ? $settings['scope']['rootblock'] : 'p';
+		// Minimal Usage Override.
+		if ( 'true' === $settings['minimal'] ) {
+			$settings['scope']['use_menubar']    = 'false';
+			$settings['scope']['use_media']      = 'false';
+			$settings['scope']['use_link']       = 'false';
+			$settings['scope']['use_blockquote'] = 'false';
+			$settings['scope']['use_lists']      = 'false';
+			$settings['scope']['use_background'] = 'false';
+			$settings['scope']['use_height']     = 150;
 		}
 
-		return $values;
+		return $settings;
 	}
 }
