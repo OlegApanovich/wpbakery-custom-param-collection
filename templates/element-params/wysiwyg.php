@@ -7,12 +7,12 @@
  *
  * @var mixed $value
  * @var array $settings
- * @var int $randomizer
+ * @var string $randomizer
  * @var string $type
  */
 
 defined( 'ABSPATH' ) || exit;
-$reduced_height = $settings['use_height'] - 60;
+$reduced_height = strval( $settings['use_height'] - 60 );
 ?>
 <div
 	id="wcp-wysiwyg-container-<?php echo esc_attr( $randomizer ); ?>"

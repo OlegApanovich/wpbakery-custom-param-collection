@@ -32,7 +32,7 @@ class Wysiwyg extends ElementParamsAbstract {
 			[
 				'value'      => $value,
 				'settings'   => $settings,
-				'randomizer' => wp_rand( 100000, 99999999 ),
+				'randomizer' => (string) wp_rand( 100000, 99999999 ),
 				'_this'      => $this,
 			]
 		);
