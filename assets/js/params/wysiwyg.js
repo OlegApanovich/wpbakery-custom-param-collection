@@ -262,6 +262,30 @@ vc.atts.custom_wysiwyg = {
             remove_script_host: false,
             document_base_url: siteUrl,
             setup: function (editor) {
+                if ( window.vc_auto_save ) {
+                    var debouncedSave = _.debounce(function () {
+                        vc.edit_element_block_view.save();
+                        isModified = false;
+                    }, 500);
+
+                    editor.on('keyup', function () {
+                        vc.saveInProcess = true;
+                        debouncedSave();
+                    });
+                    editor.on('blur', function () {
+                        // Prevent save on blur on initial load
+                        // and when save is in process from the keyup event
+                        if ( !vc.saveInProcess ) {
+                            vc.saveInProcess = true;
+                            vc.edit_element_block_view.save();
+                        }
+                    });
+                    editor.on('ExecCommand', debouncedSave);
+                    jQuery( '#' + editorId ).on( 'change', function () {
+                        vc.saveInProcess = true;
+                        debouncedSave();
+                    });
+                }
                 editor.on("init", function () {
                     if (useTabs) {
                         htmlTab.removeClass("active");
