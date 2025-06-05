@@ -47,17 +47,23 @@ class Wysiwyg extends ElementParamsAbstract {
 	 * @return array
 	 */
 	public function get_specific_param_settings( array $settings ): array {
-		// Editor Settings.
-		$settings['scope']['use_tabs']       = isset( $settings['scope']['tabs'] ) ? $settings['scope']['tabs'] : 'true';
-		$settings['scope']['use_menubar']    = isset( $settings['scope']['menubar'] ) ? $settings['scope']['menubar'] : 'true';
-		$settings['scope']['use_media']      = isset( $settings['scope']['media'] ) ? $settings['scope']['media'] : 'true';
-		$settings['scope']['use_link']       = isset( $settings['scope']['link'] ) ? $settings['scope']['link'] : 'true';
-		$settings['scope']['use_lists']      = isset( $settings['scope']['lists'] ) ? $settings['scope']['lists'] : 'true';
-		$settings['scope']['use_blockquote'] = isset( $settings['scope']['blockquote'] ) ? $settings['scope']['blockquote'] : 'true';
-		$settings['scope']['use_textcolor']  = isset( $settings['scope']['textcolor'] ) ? $settings['scope']['textcolor'] : 'true';
-		$settings['scope']['use_background'] = isset( $settings['scope']['background'] ) ? $settings['scope']['background'] : 'true';
-		$settings['scope']['use_height']     = isset( $settings['scope']['height'] ) ? $settings['scope']['height'] : 250;
-		$settings['scope']['use_rootblock']  = isset( $settings['scope']['rootblock'] ) ? $settings['scope']['rootblock'] : 'p';
+		$defaults = [
+			'use_tabs'       => 'true',
+			'use_menubar'    => 'true',
+			'use_media'      => 'true',
+			'use_link'       => 'true',
+			'use_lists'      => 'true',
+			'use_blockquote' => 'true',
+			'use_textcolor'  => 'true',
+			'use_background' => 'true',
+			'use_height'     => 250,
+			'use_rootblock'  => 'p',
+		];
+
+		foreach ( $defaults as $key => $default ) {
+			$settings['scope'][ $key ] = $settings['scope'][ $key ] ?? $default;
+		}
+
 		// Minimal Usage Override.
 		if ( 'true' === $settings['minimal'] ) {
 			$settings['scope']['use_menubar']    = 'false';
