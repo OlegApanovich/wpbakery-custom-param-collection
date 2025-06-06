@@ -163,7 +163,7 @@ function switchWysiwygTab(mode, visualTab, htmlTab, editorId) {
 }
 
 // Main WYSIWYG component definition
-vc.atts.custom_wysiwyg = {
+vc.atts[window.i18nLocale.wcp_param_prefix + "_wysiwyg"] = {
     render: function (param, value) {
         return value
             ? jQuery("<div/>").text(rawurldecode(base64_decode(value.trim()))).html()

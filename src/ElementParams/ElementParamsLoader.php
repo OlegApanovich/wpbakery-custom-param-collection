@@ -28,6 +28,25 @@ class ElementParamsLoader {
 	public $param_prefix;
 
 	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+		add_filter( 'vc_get_editor_locale', [ $this, 'localize_wpb_editors' ], 20 );
+	}
+
+	/**
+	 * Localization for js code in WPBakery Page Builder editors.
+	 *
+	 * @param array $localization
+	 * @return array
+	 */
+	public function localize_wpb_editors( array $localization ): array {
+		$localization['wcp_param_prefix'] = $this->get_param_prefix();
+
+		return $localization;
+	}
+
+	/**
 	 * Get param prefix.
 	 *
 	 * @return string
@@ -43,13 +62,13 @@ class ElementParamsLoader {
 	}
 
 	/**
-	 * Initialize element custom params.
+	 * Load element custom params.
 	 */
-	public function init_custom_element_params() {
+	public function load_custom_element_params() {
 		$param_list = wpbcustomparamcollection_config( 'element-custom-params' );
 
 		foreach ( $param_list as $param_slug => $param_defaults ) {
-			$result = $this->init_single_param( $param_slug, $param_defaults );
+			$result = $this->load_single_param( $param_slug, $param_defaults );
 
 			if ( ! $result ) {
 				trigger_error( "Can't init custom element param " . esc_attr( $param_slug ) . __FILE__ . ' on line ' . __LINE__, E_USER_ERROR );
@@ -65,7 +84,7 @@ class ElementParamsLoader {
 	 *
 	 * @return bool
 	 */
-	public function init_single_param( string $param_slug, array $param_defaults ): bool {
+	public function load_single_param( string $param_slug, array $param_defaults ): bool {
 		$param_instance = $this->get_param_instance( $param_slug, $param_defaults );
 
 		$param_script = $this->get_param_script( $param_slug );
