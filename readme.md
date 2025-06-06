@@ -264,12 +264,12 @@ __Exemple:__
 ```php
 add_action( 'vc_before_init', 'your_name_integrate' );
 function your_name_integrate() {
-    vc_map( [
-        "name" => __( 'Custom Element', 'my-text-domain' ),
-        'base' => 'bartag',
-        'category' => __( 'Content', 'my-text-domain'),
-        'params' => [
-            array(
+	vc_map( [
+		"name" => __( 'Custom Element', 'my-text-domain' ),
+		'base' => 'bartag',
+		'category' => __( 'Content', 'my-text-domain'),
+		'params' => [
+ 			[
 				"type"       => "custom_wysiwyg",
 				"param_name" => "custom_wysiwyg_example",
 				"value"      => base64_encode(""),
@@ -277,7 +277,7 @@ function your_name_integrate() {
 					'use_menubar'    => 'false',
 					'use_media'      => 'false',
 				]
-			),
+			],
         ]
     ] );
 }
