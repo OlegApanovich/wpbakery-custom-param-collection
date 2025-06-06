@@ -239,7 +239,7 @@ function your_name_integrate() {
 }
 ```
 
-### 4. WYSIWYG TinyMCE
+### 5. WYSIWYG TinyMCE
 
 __type__ : custom_wysiwyg
 
@@ -252,22 +252,22 @@ __Screnshot:__
 
 __Param Attributes:__
 
-| Name | Type | Requred | Description | 
-|----------|----------|----------|----------|
-| param_name    | string     | yes     | Param slug. |
-| value    | string     | yes     | Even if you don't want predefind value here, you should specify encoded empty string here base64_encode("")  |
-| minimal    | bool     | no     | Display TinyMCE editor with minimal number of options. Default - "false" | 
-| scope    | array     | no     | If you want to disable certain TinyMCE options, you can specify them in the scope array with a false value, or override their default value if they have one. Below is a list of options and their default values: [
-			'use_tabs'       => 'true',
-			'use_menubar'    => 'true',
-			'use_media'      => 'true',
-			'use_link'       => 'true',
-			'use_lists'      => 'true',
-			'use_blockquote' => 'true',
-			'use_textcolor'  => 'true',
-			'use_background' => 'true',
-			'use_rootblock'  => 'p',
-		] | 
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| param_name | string | yes | Param slug. |
+| value | string | yes | Even if you don't want predefined value here, you should specify encoded empty string here `base64_encode("")`. |
+| minimal | bool | no | Display TinyMCE editor with minimal number of options. Default - "false". |
+| scope | array | no | If you want to disable certain TinyMCE options, you can specify them in the scope array with a false value, or override their default value if they have one. <br><br> Default values:<br><pre><code>[
+    'use_tabs'       => 'true',
+    'use_menubar'    => 'true',
+    'use_media'      => 'true',
+    'use_link'       => 'true',
+    'use_lists'      => 'true',
+    'use_blockquote' => 'true',
+    'use_textcolor'  => 'true',
+    'use_background' => 'true',
+    'use_rootblock'  => 'p',
+]</code></pre> |
 
 __Exemple:__
 
