@@ -238,3 +238,57 @@ function your_name_integrate() {
     ] );
 }
 ```
+
+### 4. WYSIWYG TinyMCE
+
+__type__ : custom_wysiwyg
+
+__Description:__
+By default, WPBakery supports only one WYSIWYG TinyMCE parameter type — textarea_html — per element. With this custom parameter, you can add as many WYSIWYG TinyMCE parameters to a single element as you want.
+
+__Screnshot:__
+
+![Notice Param](assets/images/github-readme/screen-5.png)
+
+__Param Attributes:__
+
+| Name | Type | Requred | Description | 
+|----------|----------|----------|----------|
+| param_name    | string     | yes     | Param slug. |
+| value    | string     | yes     | Even if you don't want predefind value here, you should specify encoded empty string here base64_encode("")  |
+| minimal    | bool     | no     | Display TinyMCE editor with minimal number of options. Default - "false" | 
+| scope    | array     | no     | If you want to disable certain TinyMCE options, you can specify them in the scope array with a false value, or override their default value if they have one. Below is a list of options and their default values: [
+			'use_tabs'       => 'true',
+			'use_menubar'    => 'true',
+			'use_media'      => 'true',
+			'use_link'       => 'true',
+			'use_lists'      => 'true',
+			'use_blockquote' => 'true',
+			'use_textcolor'  => 'true',
+			'use_background' => 'true',
+			'use_rootblock'  => 'p',
+		] | 
+
+__Exemple:__
+
+```php
+add_action( 'vc_before_init', 'your_name_integrate' );
+function your_name_integrate() {
+    vc_map( [
+        "name" => __( 'Custom Element', 'my-text-domain' ),
+        'base' => 'bartag',
+        'category' => __( 'Content', 'my-text-domain'),
+        'params' => [
+            array(
+				"type"       => "custom_wysiwyg",
+				"param_name" => "custom_wysiwyg_example",
+				"value"      => base64_encode(""),
+				"scope"      => [
+					'use_menubar'    => 'false',
+					'use_media'      => 'false',
+				]
+			),
+        ]
+    ] );
+}
+```
