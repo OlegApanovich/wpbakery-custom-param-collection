@@ -12,7 +12,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-$reduced_height = 190;
+$reduced_height = "190";
 ?>
 <div
 	id="wcp-wysiwyg-container-<?php echo esc_attr( $randomizer ); ?>"
