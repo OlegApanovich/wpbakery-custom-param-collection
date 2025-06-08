@@ -21,8 +21,7 @@ class Plugin {
 	 * Initialize plugin.
 	 */
 	public function init() {
-		add_action( 'vc_before_init_frontend_editor', [ $this, 'init_custom_element_params' ], 20 );
-		add_action( 'vc_before_init_backend_editor', [ $this, 'init_custom_element_params' ], 20 );
+		add_action( 'admin_init', [ $this, 'init_custom_element_params' ], 20 );
 	}
 
 	/**
