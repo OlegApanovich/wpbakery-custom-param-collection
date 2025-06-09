@@ -182,8 +182,8 @@ function your_name_integrate() {
                 'options'     => [
                     'open_value' => [
                         'label' => '',
-                        'on'    => __( 'Yes', "my-text-domain" ),
-                        'off'   => __( 'No', "my-text-domain" ),
+                        'on'    => __( 'Yes', 'my-text-domain' ),
+                        'off'   => __( 'No', 'my-text-domain' ),
                     ],
                 ],
                 'value' => 'open_value',
