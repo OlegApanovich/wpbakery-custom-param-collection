@@ -244,7 +244,7 @@ function your_name_integrate() {
 __type__ : custom_wysiwyg
 
 __Description:__
-By default, WPBakery supports only one WYSIWYG TinyMCE parameter type — textarea_html — per element. With this custom parameter, you can add as many WYSIWYG TinyMCE parameters to a single element as you want. We encode this param value when saving it. To access this param value in your element template you need decode it first.
+By default, WPBakery supports only one WYSIWYG TinyMCE parameter type — textarea_html — per element. With this custom parameter, you can add as many WYSIWYG TinyMCE parameters to a single element as you want. We encode this param value when saving it. To access this param value in your element template, you need to decode it first.
 
 ```php
 rawurldecode( base64_decode( strip_tags( $param_value ) ) );
