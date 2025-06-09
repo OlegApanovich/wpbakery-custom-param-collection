@@ -260,7 +260,7 @@ __Param Attributes:__
 |-------------|--------|----------|-------------|
 | param_name  | string | yes      | Param slug. |
 | value       | string | yes      | Even if you don't want predefined value here, specify encoded empty string like `base64_encode("")`. |
-| minimal     | bool   | no       | Display TinyMCE editor with minimal options. Default: `"false"`. |
+| minimal     | "true"|"false"   | no       | Display TinyMCE editor with minimal options. Default: `"false"`. |
 | scope       | array  | no       | Disable or override TinyMCE features. Default: `[ 'use_tabs' => 'true', 'use_menubar' => 'true', 'use_media' => 'true', 'use_link' => 'true', 'use_lists' => 'true', 'use_blockquote' => 'true', 'use_textcolor' => 'true', 'use_background' => 'true', 'use_rootblock' => 'p' ]`. |
 
 __Exemple:__
