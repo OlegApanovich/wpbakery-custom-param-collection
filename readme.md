@@ -179,13 +179,13 @@ function your_name_integrate() {
             [
                 'type'        => 'custom_switcher',
                 'param_name'  => 'custom_switcher_example',
-                'options'     => array(
-                    'open_value' => array(
+                'options'     => [
+                    'open_value' => [
                         'label' => '',
-                        'on'    => __( 'Yes', "my-text-domain" ),
-                        'off'   => __( 'No', "my-text-domain" ),
-                    ),
-                ),
+                        'on'    => __( 'Yes', 'my-text-domain' ),
+                        'off'   => __( 'No', 'my-text-domain' ),
+                    ],
+                ],
                 'value' => 'open_value',
             ],
         ]
