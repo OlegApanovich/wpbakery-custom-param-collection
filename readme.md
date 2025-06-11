@@ -244,11 +244,7 @@ function your_name_integrate() {
 __type__ : custom_wysiwyg
 
 __Description:__
-By default, WPBakery supports only one WYSIWYG TinyMCE parameter type — textarea_html — per element. With this custom parameter, you can add as many WYSIWYG TinyMCE parameters to a single element as you want. We encode this param value when saving it. To access this param value in your element template, you need to decode it first.
-
-```php
-rawurldecode( base64_decode( $param_value ) );
-```
+By default, WPBakery supports only one WYSIWYG TinyMCE parameter type — textarea_html — per element. With this custom parameter, you can add as many WYSIWYG TinyMCE parameters to a single element as you want.
 
 __Screnshot:__
 
@@ -259,7 +255,7 @@ __Param Attributes:__
  Name        | Type   | Required | Description |
 |-------------|--------|----------|-------------|
 | param_name  | string | yes      | Param slug. |
-| value       | string | yes      | Even if you don't want predefined value here, specify encoded empty string like `base64_encode("")`. |
+| value       | string | yes      | Even if you don't want a predefined value here, specify at least an empty string. |
 | minimal     | "true" or "false"   | no       | Display TinyMCE editor with minimal options. Default: `"false"`. |
 | scope       | array  | no       | Disable or override TinyMCE features. Default: `[ 'use_tabs' => 'true', 'use_menubar' => 'true', 'use_media' => 'true', 'use_link' => 'true', 'use_lists' => 'true', 'use_blockquote' => 'true', 'use_textcolor' => 'true', 'use_background' => 'true', 'use_rootblock' => 'p' ]`. |
 
@@ -276,7 +272,7 @@ function your_name_integrate() {
  			[
 				"type"       => "custom_wysiwyg",
 				"param_name" => "custom_wysiwyg_example",
-				"value"      => base64_encode(""),
+				"value"      => "",
 				"scope"      => [
 					'use_menubar'    => 'false',
 					'use_media'      => 'false',
