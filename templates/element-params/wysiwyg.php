@@ -44,6 +44,6 @@ $reduced_height = '190';
 	<textarea id="wcp-wysiwyg-editor-<?php echo esc_attr( $randomizer ); ?>"
 				name="<?php echo esc_attr( $settings['param_name'] ); ?>"
 				class="wcp-wysiwyg-editor wpb_vc_param_value ' . '<?php echo esc_attr( $settings['param_name'] ); ?> <?php echo esc_attr( $settings['type'] ); ?>"
-				><?php echo wp_kses_post( htmlentities( rawurldecode( base64_decode( $value ) ), ENT_COMPAT, 'UTF-8' ) ); // phpcs:ignore: WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode ?></textarea>
+				><?php echo wp_kses_post( htmlentities( rawurldecode(  $value ), ENT_COMPAT, 'UTF-8' ) ); ?></textarea>
 </div>
 
