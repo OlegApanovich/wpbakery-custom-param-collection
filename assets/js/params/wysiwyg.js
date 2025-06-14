@@ -1,4 +1,3 @@
-// Tab switching function for WYSIWYG editor
 function switchWysiwygTab(mode, visualTab, htmlTab, editorId) {
     var textarea = jQuery("textarea#" + editorId),
         mceTinymce = textarea.siblings(".mce-tinymce.mce-container.mce-panel"),
@@ -12,32 +11,49 @@ function switchWysiwygTab(mode, visualTab, htmlTab, editorId) {
             tinymce.get(editorId).windowManager.close();
             textarea.val(content).show();
             mceTinymce.hide();
+            jQuery(".mce-toolbar-grp.mce-inline-toolbar-grp.mce-container.mce-panel").hide();
         }
     } else {
         visualTab.addClass("active");
         htmlTab.removeClass("active");
         content = textarea.val();
-        tinymce.get(editorId).setContent(content, { format: 'raw' });
+        tinymce.get(editorId).setContent(content, { format: "raw" });
         tinymce.get(editorId).windowManager.close();
         textarea.hide();
         mceTinymce.show();
+        jQuery(".mce-toolbar-grp.mce-inline-toolbar-grp.mce-container.mce-panel").hide();
     }
 }
 
-// Register the WYSIWYG parameter type
-vc.atts.wysiwyg = {
-    render: function(param, value) {
-        return value ? value.trim() : "";
+// Main WYSIWYG component definition
+vc.atts[window.i18nLocale.wcp_param_prefix + "_wysiwyg"] = {
+    render: function (param, value) {
+        return value
+            ? jQuery("<div/>").text(value).html()
+            : "";
     },
-    parse: function(param) {
-        var $field = this.content().find('.wpb_vc_param_value[name=' + param.param_name + ']'),
-            $editor = $field.closest('.edit_form_line').find('textarea.visual_composer_tinymce'),
-            $activeEditor = $editor.closest('.edit_form_line').find('.switch-tmce.active').length ? tinymce.get($editor.attr('id')) : false;
 
-        if ($activeEditor) {
-            return $activeEditor.getContent();
+    parse: function (param) {
+        var input = this.content().find(".wpb_vc_param_value[name=" + param.param_name + "]"),
+            editorId = input.attr("id"),
+            result = "",
+            tabs = input.siblings(".wcp-wysiwyg-tabs"),
+            editor = tinymce.EditorManager.get(editorId);
+
+        if (tabs.length > 0) {
+            var visualTab = tabs.find(".wcp-wysiwyg-visual"),
+                htmlTab = tabs.find(".wcp-wysiwyg-html");
+
+            result = visualTab.hasClass("active")
+                ? (editor && editor instanceof tinymce.Editor ? editor.getContent({ format: "html" }) : input.val())
+                : (htmlTab.hasClass("active") && input.val());
+        } else {
+            result = editor && editor instanceof tinymce.Editor
+                ? editor.getContent({ format: "html" })
+                : input.val();
         }
-        return $editor.val();
+
+        return result;
     },
 
     init: function (param, $el) {
@@ -108,7 +124,7 @@ vc.atts.wysiwyg = {
             remove_script_host: false,
             document_base_url: siteUrl,
             setup: function (editor) {
-                if (window.vc_auto_save) {
+                if ( window.vc_auto_save ) {
                     var debouncedSave = _.debounce(function () {
                         vc.edit_element_block_view.save();
                         isModified = false;
@@ -121,13 +137,13 @@ vc.atts.wysiwyg = {
                     editor.on('blur', function () {
                         // Prevent save on blur on initial load
                         // and when save is in process from the keyup event
-                        if (!vc.saveInProcess) {
+                        if ( !vc.saveInProcess ) {
                             vc.saveInProcess = true;
                             vc.edit_element_block_view.save();
                         }
                     });
                     editor.on('ExecCommand', debouncedSave);
-                    jQuery('#' + editorId).on('change', function () {
+                    jQuery( '#' + editorId ).on( 'change', function () {
                         vc.saveInProcess = true;
                         debouncedSave();
                     });
@@ -152,3 +168,32 @@ vc.atts.wysiwyg = {
         }
     }
 };
+
+jQuery(document).ready(function () {
+    // fix issue with WYSIWYG editor inside param_group
+    jQuery(".edit_form_line > .vc_param_group-list > .vc_param_group-add_content").on("click", function () {
+
+        let $newEl = jQuery(this).parent().parent().find('.vc_param_group-template').html();
+
+        $newEl = $newEl.replace(
+            /<!-- wcp-wysiwyg-start -->([\s\S]*?)<!-- wcp-wysiwyg-end -->/g,
+            (match, content) => {
+                const idMatch = content.match(/wcp-wysiwyg-container-(\d+)/);
+                if (!idMatch) return match;
+
+                const baseId = idMatch[1];
+                const newSuffix = Math.floor(Math.random() * 100000);
+                const newId = `${baseId}-${newSuffix}`;
+
+                return match
+                    .replace(new RegExp(`wcp-wysiwyg-container-${baseId}`, 'g'), `wcp-wysiwyg-container-${newId}`)
+                    .replace(new RegExp(`wcp-wysiwyg-tabs-${baseId}`, 'g'), `wcp-wysiwyg-tabs-${newId}`)
+                    .replace(new RegExp(`wcp-wysiwyg-html-${baseId}`, 'g'), `wcp-wysiwyg-html-${newId}`)
+                    .replace(new RegExp(`wcp-wysiwyg-visual-${baseId}`, 'g'), `wcp-wysiwyg-visual-${newId}`)
+                    .replace(new RegExp(`wcp-wysiwyg-editor-${baseId}`, 'g'), `wcp-wysiwyg-editor-${newId}`);
+            }
+        );
+
+        jQuery(this).parent().parent().find('.vc_param_group-template').text($newEl);
+    });
+});
