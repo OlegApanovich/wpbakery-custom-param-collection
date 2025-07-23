@@ -27,12 +27,13 @@ return [
 		'default_set' => false,
 	],
 	'notice'        => [
+		'type'        => '',
 		'level'  => 'notice',
 		'notice' => '',
 	],
 	'wysiwyg'       => [
-		'minimal' => 'false',
 		'type'    => '',
+		'minimal' => 'false',
 		'scope'   => [],
 	],
 ];
