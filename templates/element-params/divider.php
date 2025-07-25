@@ -3,7 +3,6 @@
  * Custom element param template for a divider param.
  *
  * @see https://kb.wpbakery.com/docs/developers-how-tos/create-new-param-type
- * @since 1.3
  *
  * @var array $settings
  * @var WpbCustomParamCollection\ElementParams\Lib\Divider $_this

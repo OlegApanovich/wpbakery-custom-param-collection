@@ -2,8 +2,6 @@
 /**
  * Switcher segment element param template.
  *
- * @since 1.1
- *
  * @var string $uid,
  * @var string $label,
  * @var array $opts,

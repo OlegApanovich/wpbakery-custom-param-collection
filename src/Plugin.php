@@ -1,8 +1,6 @@
 <?php
 /**
  * Entry point for add plugin elements to dependency plugin.
- *
- * @since 1.0
  */
 
 namespace WpbCustomParamCollection;
@@ -13,8 +11,6 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Admin settings
- *
- * @since 1.0
  */
 class Plugin {
 	/**
