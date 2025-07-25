@@ -37,8 +37,9 @@ return [
 		'scope'   => [],
 	],
 	'divider'       => [
-		'title'    => '',
-		'subtitle' => '',
-		'color'    => '#E7E7E7',
+		'title'             => '',
+		'title_description' => '',
+		'subtitle'          => '',
+		'color'             => '#E7E7E7',
 	],
 ];
