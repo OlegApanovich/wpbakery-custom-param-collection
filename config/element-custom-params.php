@@ -36,4 +36,9 @@ return [
 		'minimal' => 'false',
 		'scope'   => [],
 	],
+	'divider'       => [
+		'title'    => '',
+		'subtitle' => '',
+		'color'    => '#E7E7E7',
+	],
 ];
