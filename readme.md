@@ -326,3 +326,45 @@ function your_name_integrate() {
     ] );
 }
 ```
+## Bonus
+Additionally to custom parameter collection, we provide functionality to group parameters together. In the edit element popup, this will be visible as a border on the right side of the parameter.
+To enable this, you need to provide an additional parameter attribute called 'wcp_group' with the value true.
+
+__Screnshot:__
+
+![Notice Param](assets/images/github-readme/group.png)
+
+__Exemple:__
+
+```php
+add_action( 'vc_before_init', 'your_name_integrate' );
+function your_name_integrate() {
+    vc_map( [
+        "name" => __( 'Custom Element', 'my-text-domain' ),
+        'base' => 'bartag',
+        'category' => __( 'Content', 'my-text-domain'),
+        'params' => [
+            [
+                'type'        => 'custom_number_slider',
+                'param_name'  => 'custom_number_slider_example',
+                'heading' => 'Here some title',
+                'wcp_group' => true,
+                'title' => 'px',
+                'min' => 11,
+                'max' => 100,
+                'step' => 1,
+            ],
+            [
+                'type'        => 'custom_number_slider',
+                'wcp_group' => true,
+                'param_name'  => 'custom_number_slider_example_2',
+                'heading' => 'Here some title',
+                'title' => 'px',
+                'min' => 11,
+                'max' => 100,
+                'step' => 1,
+            ],
+        ]
+    ] );
+}
+```
