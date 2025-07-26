@@ -62,8 +62,8 @@ __Param Attributes:__
 __Exemple:__
 
 ```php
-add_action( 'vc_before_init', 'your_name_integrate' );
-function your_name_integrate() {
+add_action( 'vc_before_init', 'integrate_custom_param' );
+function integrate_custom_param() {
     vc_map( [
         "name" => __( "Custom Element", "my-text-domain" ),
         "base" => "bartag",
@@ -107,8 +107,8 @@ __Param Attributes:__
 __Exemple:__
 
 ```php
-add_action( 'vc_before_init', 'your_name_integrate' );
-function your_name_integrate() {
+add_action( 'vc_before_init', 'integrate_custom_param' );
+function integrate_custom_param() {
     vc_map( [
         "name" => __( "Custom Element", "my-text-domain" ),
         "base" => "bartag",
@@ -170,8 +170,8 @@ __Param Attributes:__
 __Exemple:__
 
 ```php
-add_action( 'vc_before_init', 'your_name_integrate' );
-function your_name_integrate() {
+add_action( 'vc_before_init', 'integrate_custom_param' );
+function integrate_custom_param() {
     vc_map( [
         "name" => __( 'Custom Element', 'my-text-domain' ),
         'base' => 'bartag',
@@ -219,8 +219,8 @@ __Param Attributes:__
 __Exemple:__
 
 ```php
-add_action( 'vc_before_init', 'your_name_integrate' );
-function your_name_integrate() {
+add_action( 'vc_before_init', 'integrate_custom_param' );
+function integrate_custom_param() {
     vc_map( [
         "name" => __( 'Custom Element', 'my-text-domain' ),
         'base' => 'bartag',
@@ -263,8 +263,8 @@ __Param Attributes:__
 __Exemple:__
 
 ```php
-add_action( 'vc_before_init', 'your_name_integrate' );
-function your_name_integrate() {
+add_action( 'vc_before_init', 'integrate_custom_param' );
+function integrate_custom_param() {
 	vc_map( [
 		"name" => __( 'Custom Element', 'my-text-domain' ),
 		'base' => 'bartag',
@@ -279,6 +279,49 @@ function your_name_integrate() {
 					'use_media'      => 'false',
 				]
 			],
+        ]
+    ] );
+}
+```
+### 6. Divider
+
+__type__ : custom_divider
+
+__Description:__
+Divider help group param visually, divide them with line separator with title.
+
+__Screnshot:__
+
+![Notice Param](assets/images/github-readme/screen-6.png)
+
+__Param Attributes:__
+
+ Name        | Type   | Required | Description |
+|-------------|--------|----------|-------------|
+| param_name  | string | yes      | Param slug. |
+| title       | string | no      | Title above separator line. |
+| subtitle       | string | no      | Subtitle under separator line. |
+| title_description       | string | no      | Analog description for a regular parameter. Visible as a tooltip near the title. |
+| color       | string | no      | Separator line color. |
+
+__Exemple:__
+
+```php
+add_action( 'vc_before_init', 'your_name_integrate' );
+function your_name_integrate() {
+    vc_map( [
+        "name" => __( 'Custom Element', 'my-text-domain' ),
+        'base' => 'bartag',
+        'category' => __( 'Content', 'my-text-domain'),
+        'params' => [
+            [
+                'type'              => 'custom_divider',
+                'param_name'        => 'custom_divider_example',
+                'title'             => __( 'Title Example', 'my-text-domain' ),
+                'title_description' => __( 'Group Description', 'my-text-domain' ),
+                'subtitle'          => __( 'Subtitle Example', 'my-text-domain' ),
+                'color'             => '#4873c9',
+            ],
         ]
     ] );
 }
