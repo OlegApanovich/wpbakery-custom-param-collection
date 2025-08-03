@@ -271,10 +271,10 @@ function integrate_custom_param() {
 		'category' => __( 'Content', 'my-text-domain'),
 		'params' => [
  			[
-				"type"       => "custom_wysiwyg",
-				"param_name" => "custom_wysiwyg_example",
-				"value"      => "",
-				"scope"      => [
+				'type'       => 'custom_wysiwyg',
+				'param_name' => 'custom_wysiwyg_example',
+				'value'      => '',
+				'scope'      => [
 					'use_menubar'    => 'false',
 					'use_media'      => 'false',
 				]
