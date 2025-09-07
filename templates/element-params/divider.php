@@ -15,11 +15,13 @@ defined( 'ABSPATH' ) || exit;
 	<?php
 	echo esc_html( $settings['title'] );
 
-	if ( ! empty( $settings['title_description'] ) && WPB_VC_VERSION >= 8.0 ) {
-		vc_include_template(
-			'editors/partials/param-info.tpl.php',
-			[ 'description' => $settings['title_description'] ]
-		);
+	if ( version_compare( WPB_VC_VERSION, '8.0', '>=' ) ) {
+		if ( ! empty( $settings['title_description'] ) ) {
+			vc_include_template(
+				'editors/partials/param-info.tpl.php',
+				[ 'description' => $settings['title_description'] ]
+			);
+		}
 	}
 	?>
 </div>
