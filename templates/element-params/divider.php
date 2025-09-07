@@ -4,7 +4,6 @@
  *
  * @see https://kb.wpbakery.com/docs/developers-how-tos/create-new-param-type
  *
- * @var string WPB_VC_VERSION
  * @var array $settings
  * @var WpbCustomParamCollection\ElementParams\Lib\Divider $_this
  */
@@ -16,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php
 	echo esc_html( $settings['title'] );
 
+	/** @phpstan-ignore-next-line */
 	if ( version_compare( WPB_VC_VERSION, '8.0', '>=' ) ) {
 		if ( ! empty( $settings['title_description'] ) ) {
 			vc_include_template(
