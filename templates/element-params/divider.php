@@ -4,6 +4,7 @@
  *
  * @see https://kb.wpbakery.com/docs/developers-how-tos/create-new-param-type
  *
+ * @var string WPB_VC_VERSION
  * @var array $settings
  * @var WpbCustomParamCollection\ElementParams\Lib\Divider $_this
  */
