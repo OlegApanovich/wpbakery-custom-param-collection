@@ -29,3 +29,4 @@ defined( 'ABSPATH' ) || exit;
 <span class="vc_description vc_clearfix">
 	<?php echo esc_html( $settings['subtitle'] ); ?>
 </span>
+<input type="hidden" class="wpb_vc_param_value" name="<?php echo esc_attr( $settings['param_name'] ); ?>" value="1" />
