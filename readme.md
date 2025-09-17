@@ -336,8 +336,8 @@ __Screnshot:__
 __Exemple:__
 
 ```php
-add_action( 'vc_before_init', 'your_name_integrate' );
-function your_name_integrate() {
+add_action( 'vc_before_init', 'integrate_custom_param' );
+function integrate_custom_param() {
     vc_map( [
         "name" => __( 'Custom Element', 'my-text-domain' ),
         'base' => 'bartag',
