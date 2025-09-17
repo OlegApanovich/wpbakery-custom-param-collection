@@ -63,10 +63,10 @@ class ElementParamsLoader {
 			foreach ( $this->get_param_prefix_list() as $prefix ) {
 				$prefix_slug = $prefix . '_' . $param_slug;
 				$result      = $this->load_single_param( $param_slug, $param_defaults, $prefix_slug );
-			}
 
-			if ( ! $result ) {
-				trigger_error( "Can't init custom element param " . esc_attr( $param_slug ) . __FILE__ . ' on line ' . __LINE__, E_USER_ERROR );
+                if ( ! $result ) {
+                    trigger_error( "Can't init custom element param " . esc_attr( $param_slug ) . __FILE__ . ' on line ' . __LINE__, E_USER_ERROR );
+                }
 			}
 		}
 	}
