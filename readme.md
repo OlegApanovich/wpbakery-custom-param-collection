@@ -31,9 +31,8 @@ Then, if you include to the theme, add this code to your functions.php file, or 
 add_action( 'admin_init', function() {
 	include __DIR__ .  '/wpbakery-custom-param-collection/wpbakery-custom-param-collection.php';
 } );
-
-Please note that if you include it in your theme/plugin, then disable wpbakery-custom-param-collection plugin, otherwise you will get a fatal error.
 ```
+Please note that if you include it in your theme/plugin, then disable wpbakery-custom-param-collection plugin, otherwise you will get a fatal error.
 
 ## Collection List
 
