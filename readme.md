@@ -70,7 +70,7 @@ function integrate_custom_param() {
         "params" => [
             [
                 'type'        => 'custom_number',
-                'value'         => '2.1',
+                'value'       => '2.1',
                 'min'         => '0.1',
                 'max'         => '5.5',
                 'step'        => '0.1',
