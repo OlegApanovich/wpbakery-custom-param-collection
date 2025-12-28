@@ -97,7 +97,7 @@ for (const prefix of window.i18nLocale.wcp_param_prefix_list) {
                 "alignleft aligncenter alignright alignjustify " +
                 (useLists ? "| bullist numlist outdent indent " : "") +
                 (useLink ? "| link unlink " : "") +
-                "| undo redo";
+                "| undo redo | wp_adv";
 
             var toolbar2 = "formatselect fontselect fontsizeselect " +
                 (useTextColor || useBackground ? "| " +
