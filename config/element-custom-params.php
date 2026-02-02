@@ -43,4 +43,8 @@ return [
 		'subtitle'          => '',
 		'color'             => '#E7E7E7',
 	],
+	'gradient'       => [
+		'type'              => '',
+
+	],
 ];
