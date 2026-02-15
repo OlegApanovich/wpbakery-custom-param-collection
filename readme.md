@@ -347,6 +347,7 @@ function integrate_custom_param() {
                 'type'        => 'custom_number_slider',
                 'param_name'  => 'custom_number_slider_example',
                 'heading' => 'Here some title',
+				'wcp_group' => true,
                 'wcp_group_color' => '#006400',
                 'title' => 'px',
                 'min' => 11,
@@ -356,6 +357,7 @@ function integrate_custom_param() {
             [
                 'type'        => 'custom_number_slider',
                 'param_name'  => 'custom_number_slider_example_2',
+				'wcp_group' => true,
                 'wcp_group_color' => '#006400',
                 'heading' => 'Here some title',
                 'title' => 'px',
