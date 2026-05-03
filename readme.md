@@ -61,8 +61,8 @@ Add to your composer.json
 Then, if you include to the theme, add this code to your functions.php file, or if you use a plugin, add it to the main plugin file.
 ```php
 add_action( 'admin_init', function() {
-	if ( class_exists( Wpbackery_Custom_Param_Collection::class ) ) {
-		Wpbackery_Custom_Param_Collection::boot();
+	if ( class_exists( \Wpbackery_Custom_Param_Collection::class ) ) {
+		\Wpbackery_Custom_Param_Collection::boot();
 	}
 } );
 ```
