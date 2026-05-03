@@ -15,8 +15,6 @@
  * Requires PHP:      7.1
  */
 
-defined( 'ABSPATH' ) || exit;
-
 use WpbCustomParamCollection\Plugin;
 
 /**
