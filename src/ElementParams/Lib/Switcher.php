@@ -8,6 +8,7 @@
 namespace WpbCustomParamCollection\ElementParams\Lib;
 
 use WpbCustomParamCollection\ElementParams\ElementParamsAbstract;
+use function WpbCustomParamCollection\Helpers\wpbcustomparamcollection_get_template;
 
 /**
  * Switch class.

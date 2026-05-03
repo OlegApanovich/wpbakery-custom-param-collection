@@ -7,6 +7,8 @@
 
 namespace WpbCustomParamCollection\ElementParams;
 
+use function WpbCustomParamCollection\Helpers\wpbcustomparamcollection_get_template;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
