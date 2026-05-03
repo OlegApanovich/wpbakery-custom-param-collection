@@ -103,19 +103,24 @@ class Wpbackery_Custom_Param_Collection {
 	 * @since 1.0
 	 */
 	private function define_constants() {
-		define( 'WPBCUSTOMPARAMCCOLECTION_VERSION', '1.0' );
-		define( 'WPBCUSTOMPARAMCCOLECTION_PARAM_PREFIX', 'custom' );
+		$constants = [
+			'WPBCUSTOMPARAMCCOLECTION_VERSION'       => '1.0',
+			'WPBCUSTOMPARAMCCOLECTION_PARAM_PREFIX'  => 'custom',
+			'WPBCUSTOMPARAMCCOLECTION_PLUGIN_FILE'   => __FILE__,
+			'WPBCUSTOMPARAMCCOLECTION_URI'           => plugins_url( '', __FILE__ ),
+			'WPBCUSTOMPARAMCCOLECTION_ASSETS_URI'    => plugins_url( 'assets', __FILE__ ),
+			'WPBCUSTOMPARAMCCOLECTION_URI_ABSPATH'   => __DIR__ . '/',
+			'WPBCUSTOMPARAMCCOLECTION_TEMPLATES_DIR' => __DIR__ . '/templates',
+			'WPBCUSTOMPARAMCCOLECTION_INCLUDES_DIR'  => __DIR__ . '/includes',
+			'WPBCUSTOMPARAMCCOLECTION_ASSETS_DIR'    => __DIR__ . '/assets',
+			'WPBCUSTOMPARAMCCOLECTION_CONFIG_DIR'    => __DIR__ . '/config',
+		];
 
-		define( 'WPBCUSTOMPARAMCCOLECTION_PLUGIN_FILE', __FILE__ );
-
-		define( 'WPBCUSTOMPARAMCCOLECTION_URI', plugins_url( '', WPBCUSTOMPARAMCCOLECTION_PLUGIN_FILE ) );
-		define( 'WPBCUSTOMPARAMCCOLECTION_ASSETS_URI', plugins_url( 'assets', WPBCUSTOMPARAMCCOLECTION_PLUGIN_FILE ) );
-
-		define( 'WPBCUSTOMPARAMCCOLECTION_URI_ABSPATH', __DIR__ . '/' );
-		define( 'WPBCUSTOMPARAMCCOLECTION_TEMPLATES_DIR', __DIR__ . '/templates' );
-		define( 'WPBCUSTOMPARAMCCOLECTION_INCLUDES_DIR', __DIR__ . '/includes' );
-		define( 'WPBCUSTOMPARAMCCOLECTION_ASSETS_DIR', __DIR__ . '/assets' );
-		define( 'WPBCUSTOMPARAMCCOLECTION_CONFIG_DIR', __DIR__ . '/config' );
+		foreach ( $constants as $name => $value ) {
+			if ( ! defined( $name ) ) {
+				define( $name, $value );
+			}
+		}
 	}
 
 	/**
@@ -168,4 +173,13 @@ class Wpbackery_Custom_Param_Collection {
 	}
 }
 
-Wpbackery_Custom_Param_Collection::instance();
+if ( ! defined( 'WPBCUSTOMPARAMCCOLECTION_LOADED' ) ) {
+	define( 'WPBCUSTOMPARAMCCOLECTION_LOADED', true );
+
+	add_action(
+		'plugins_loaded',
+		function () {
+			Wpbackery_Custom_Param_Collection::instance();
+		}
+	);
+}
