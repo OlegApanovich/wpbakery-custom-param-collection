@@ -59,6 +59,15 @@ class Wpbackery_Custom_Param_Collection {
 	}
 
 	/**
+	 * Boot.
+	 *
+	 * @return self
+	 */
+	public static function boot(): self {
+		return self::instance();
+	}
+
+	/**
 	 * Wpbackery_Custom_Param_Collection Constructor.
 	 *
 	 * @since 1.0
@@ -179,7 +188,7 @@ if ( ! defined( 'WPBCUSTOMPARAMCCOLECTION_LOADED' ) ) {
 	add_action(
 		'plugins_loaded',
 		function () {
-			Wpbackery_Custom_Param_Collection::instance();
+			Wpbackery_Custom_Param_Collection::boot();
 		}
 	);
 }
