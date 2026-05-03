@@ -180,13 +180,17 @@ class Wpbackery_Custom_Param_Collection {
 	}
 }
 
+
 if ( ! defined( 'WPBCUSTOMPARAMCCOLECTION_LOADED' ) ) {
 	define( 'WPBCUSTOMPARAMCCOLECTION_LOADED', true );
-
-	add_action(
-		'plugins_loaded',
-		function () {
-			Wpbackery_Custom_Param_Collection::boot();
+	if ( function_exists( 'add_action' ) ) {
+		if ( function_exists( 'add_action' ) ) {
+				add_action(
+					'plugins_loaded',
+					function () {
+							Wpbackery_Custom_Param_Collection::boot();
+					}
+				);
 		}
-	);
+	}
 }
