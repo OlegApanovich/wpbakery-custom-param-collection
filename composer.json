@@ -8,6 +8,7 @@
     "phpstan/phpstan": "^1.12",
     "php-stubs/wordpress-stubs": "^6.7"
   },
+  "type": "wordpress-plugin",
   "autoload": {
     "psr-4": {"WpbCustomParamCollection\\": "src/"}
   },

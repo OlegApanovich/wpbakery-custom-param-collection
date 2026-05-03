@@ -3,9 +3,11 @@
  * Library of helper functions.
  */
 
+namespace WpbCustomParamCollection\Helpers;
+
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'wpbcustomparamcollection_include_template' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_include_template' ) ) :
 	/**
 	 * Include template from templates dir.
 	 *
@@ -27,7 +29,7 @@ if ( ! function_exists( 'wpbcustomparamcollection_include_template' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wpbcustomparamcollection_get_template' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_get_template' ) ) :
 	/**
 	 * Output template from templates dir.
 	 *
@@ -52,7 +54,7 @@ if ( ! function_exists( 'wpbcustomparamcollection_get_template' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wpbcustomparamcollection_get_template_path' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_get_template_path' ) ) :
 	/**
 	 * Shorthand for getting to the plugin templates.
 	 *
@@ -65,7 +67,7 @@ if ( ! function_exists( 'wpbcustomparamcollection_get_template_path' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wpbcustomparamcollection_config' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_config' ) ) :
 	/**
 	 * Retrieve a configuration value from a file in the config directory.
 	 *
