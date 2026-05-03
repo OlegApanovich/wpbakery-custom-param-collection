@@ -7,7 +7,7 @@ namespace WpbCustomParamCollection\Helpers;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_include_template' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\include_template' ) ) :
 	/**
 	 * Include template from templates dir.
 	 *
@@ -18,18 +18,18 @@ if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_include_templ
 	 *
 	 * @return mixed
 	 */
-	function wpbcustomparamcollection_include_template( $template, $variables = [], $once = false ) {
+	function include_template( $template, $variables = [], $once = false ) {
         // phpcs:ignore:WordPress.PHP.DontExtract.extract_extract
 		is_array( $variables ) && extract( $variables );
 		if ( $once ) {
-			return require_once wpbcustomparamcollection_get_template_path( $template );
+			return require_once get_template_path( $template );
 		} else {
-			return require wpbcustomparamcollection_get_template_path( $template );
+			return require get_template_path( $template );
 		}
 	}
 endif;
 
-if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_get_template' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\get_template' ) ) :
 	/**
 	 * Output template from templates dir.
 	 *
@@ -40,9 +40,9 @@ if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_get_template'
 	 *
 	 * @return string
 	 */
-	function wpbcustomparamcollection_get_template( $template, $variables = [], $once = false ) {
+	function get_template( $template, $variables = [], $once = false ) {
 		ob_start();
-		$output = wpbcustomparamcollection_include_template( $template, $variables, $once );
+		$output = include_template( $template, $variables, $once );
 
 		if ( 1 === $output ) {
 			$output = ob_get_contents();
@@ -54,7 +54,7 @@ if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_get_template'
 	}
 endif;
 
-if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_get_template_path' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\get_template_path' ) ) :
 	/**
 	 * Shorthand for getting to the plugin templates.
 	 *
@@ -62,12 +62,12 @@ if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_get_template_
 	 *
 	 * @return string
 	 */
-	function wpbcustomparamcollection_get_template_path( $file ): string {
+	function get_template_path( $file ): string {
 		return WPBCUSTOMPARAMCCOLECTION_TEMPLATES_DIR . '/' . $file;
 	}
 endif;
 
-if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_config' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\config' ) ) :
 	/**
 	 * Retrieve a configuration value from a file in the config directory.
 	 *
@@ -75,7 +75,7 @@ if ( ! function_exists( __NAMESPACE__ . '\wpbcustomparamcollection_config' ) ) :
 	 *
 	 * @return mixed The configuration value.
 	 */
-	function wpbcustomparamcollection_config( $config_path ) {
+	function config( $config_path ) {
 		static $loaded_configs = [];
 
 		// Replace dots with slashes, except for the last dot.

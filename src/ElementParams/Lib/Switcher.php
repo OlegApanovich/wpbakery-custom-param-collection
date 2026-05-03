@@ -8,7 +8,7 @@
 namespace WpbCustomParamCollection\ElementParams\Lib;
 
 use WpbCustomParamCollection\ElementParams\ElementParamsAbstract;
-use function WpbCustomParamCollection\Helpers\wpbcustomparamcollection_get_template;
+use function WpbCustomParamCollection\Helpers\get_template;
 
 /**
  * Switch class.
@@ -35,7 +35,7 @@ class Switcher extends ElementParamsAbstract {
 			$checked = $value === $key ? 'checked' : '';
 			$uid     = 'ultswitchparam-' . wp_rand( 1000, 9999 );
 			$label   = $opts['label'] ?? '';
-			$output .= wpbcustomparamcollection_get_template(
+			$output .= get_template(
 				'element-params/partials/switcher-segment.php',
 				[
 					'label'    => $label,
@@ -51,7 +51,7 @@ class Switcher extends ElementParamsAbstract {
 		}
 
 		$set_value = $settings['default_set'] ? 'off' : '';
-		$output   .= wpbcustomparamcollection_get_template(
+		$output   .= get_template(
 			$this->get_param_template_name(),
 			[
 				'uid'       => $uid,

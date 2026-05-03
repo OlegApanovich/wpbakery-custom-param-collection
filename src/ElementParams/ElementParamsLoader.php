@@ -7,7 +7,7 @@
 
 namespace WpbCustomParamCollection\ElementParams;
 
-use function WpbCustomParamCollection\Helpers\wpbcustomparamcollection_config;
+use function WpbCustomParamCollection\Helpers\config;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -59,7 +59,7 @@ class ElementParamsLoader {
 	 * Load element custom params.
 	 */
 	public function load_custom_element_params() {
-		$param_list = wpbcustomparamcollection_config( 'element-custom-params' );
+		$param_list = config( 'element-custom-params' );
 
 		foreach ( $param_list as $param_slug => $param_defaults ) {
 			foreach ( $this->get_param_prefix_list() as $prefix ) {

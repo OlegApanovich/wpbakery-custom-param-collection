@@ -7,7 +7,7 @@
 
 namespace WpbCustomParamCollection\ElementParams;
 
-use function WpbCustomParamCollection\Helpers\wpbcustomparamcollection_get_template;
+use function WpbCustomParamCollection\Helpers\get_template;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -114,7 +114,7 @@ abstract class ElementParamsAbstract {
 		$settings = $this->get_default_settings( $settings_initial );
 		$settings = $this->get_specific_param_settings( $settings );
 
-		$output = wpbcustomparamcollection_get_template(
+		$output = get_template(
 			$this->get_param_template_name(),
 			[
 				'value'            => $value,
