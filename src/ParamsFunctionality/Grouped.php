@@ -44,16 +44,6 @@ class Grouped {
 
 		$style = 'style="border-left: 5px solid ' . esc_attr( $color ) . '; ' . $margin . '"';
 
-		$global_style = '<style>.vc_ui-panel-content.vc_properties-list.vc_edit_form_elements {padding: 18px 18px 18px 30px}</style></div>';
-
-		$output = str_replace( 'data-vc-ui-element="panel-shortcode-param"', 'data-vc-ui-element="panel-shortcode-param" ' . $style, $output );
-
-		// Find last </div>.
-		$pos = strrpos( $output, '</div>' );
-		if ( false !== $pos ) {
-			$output = substr_replace( $output, $global_style, $pos, strlen( '</div>' ) );
-		}
-
-		return $output;
+		return str_replace( 'data-vc-ui-element="panel-shortcode-param"', 'data-vc-ui-element="panel-shortcode-param" ' . $style, $output );
 	}
 }
