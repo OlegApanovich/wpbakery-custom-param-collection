@@ -16,6 +16,21 @@ class Grouped {
 	 */
 	public function init() {
 		add_filter( 'vc_single_param_edit_holder_output', [ $this, 'add_wrapper_for_grouped_params' ], 10, 2 );
+		add_action( 'vc_backend_editor_enqueue_js_css', [ $this, 'enqueue_scripts' ] );
+		add_action( 'vc_frontend_editor_enqueue_js_css', [ $this, 'enqueue_scripts' ] );
+	}
+
+	/**
+	 * Enqueue scripts for WPBakery editors.
+	 */
+	public function enqueue_scripts() {
+		wp_enqueue_script(
+			'wcp-grouped',
+			WPBCUSTOMPARAMCCOLECTION_ASSETS_URI . '/js/params_functionality/grouped.js',
+			[],
+			WPBCUSTOMPARAMCCOLECTION_VERSION,
+			true
+		);
 	}
 
 	/**
