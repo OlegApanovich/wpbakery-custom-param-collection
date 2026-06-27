@@ -1,22 +1,4 @@
 jQuery(document).ready(function () {
-	function isNextOnTheSameLine( el ) {
-		var next = el.nextElementSibling;
-		if ( ! next ) {
-			return false
-		}
-
-		if ( ! next.classList.contains( 'vc_shortcode-param' ) ) {
-			return false
-		}
-
-		if ( Math.round( el.getBoundingClientRect().top ) === Math.round( next.getBoundingClientRect().top ) ) {
-			return true
-		}
-
-		console.log(4);
-		return false
-	}
-
 	function isPrevOnTheSameLine( el ) {
 		var prev = el.previousElementSibling;
 		if ( ! prev ) {
@@ -27,11 +9,8 @@ jQuery(document).ready(function () {
 			return false
 		}
 
-		if ( Math.round( el.getBoundingClientRect().top ) === Math.round( prev.getBoundingClientRect().top ) ) {
-			return true
-		}
+		return Math.round(el.getBoundingClientRect().top) === Math.round(prev.getBoundingClientRect().top);
 
-		return false
 	}
 
 	function applyGroupColors( context ) {
@@ -40,11 +19,7 @@ jQuery(document).ready(function () {
 				if ( isPrevOnTheSameLine( this ) ) {
 					jQuery( this ).css( 'border-left', 0 );
 				} else {
-					if ( isNextOnTheSameLine( this ) ) {
-						jQuery( this ).css( 'border-left', '5px solid ' + jQuery( this ).data( 'wcp-group-color' ) );
-					} else {
-						jQuery( this ).css( 'border-left', '5px solid ' + jQuery( this ).data( 'wcp-group-color' ) );
-					}
+					jQuery( this ).css( 'border-left', '5px solid ' + jQuery( this ).data( 'wcp-group-color' ) );
 				}
 			} );
 	}
