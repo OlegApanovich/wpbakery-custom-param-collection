@@ -1,14 +1,51 @@
 jQuery(document).ready(function () {
-	function isFirstInRow( el ) {
+	function isNextOnTheSameLine( el ) {
+		var next = el.nextElementSibling;
+		if ( ! next ) {
+			return false
+		}
+
+		if ( ! next.classList.contains( 'vc_shortcode-param' ) ) {
+			return false
+		}
+
+		if ( Math.round( el.getBoundingClientRect().top ) === Math.round( next.getBoundingClientRect().top ) ) {
+			return true
+		}
+
+		console.log(4);
+		return false
+	}
+
+	function isPrevOnTheSameLine( el ) {
 		var prev = el.previousElementSibling;
-		return !prev || Math.round( el.getBoundingClientRect().top ) !== Math.round( prev.getBoundingClientRect().top );
+		if ( ! prev ) {
+			return false
+		}
+
+		if ( ! prev.classList.contains( 'vc_shortcode-param' ) ) {
+			return false
+		}
+
+		if ( Math.round( el.getBoundingClientRect().top ) === Math.round( prev.getBoundingClientRect().top ) ) {
+			return true
+		}
+
+		return false
 	}
 
 	function applyGroupColors( context ) {
 		jQuery( '[data-wcp-group-color]', context )
-			.filter( function () { return isFirstInRow( this ); } )
 			.each( function () {
-				jQuery( this ).css( 'border-left', '5px solid ' + jQuery( this ).data( 'wcp-group-color' ) );
+				if ( isPrevOnTheSameLine( this ) ) {
+					jQuery( this ).css( 'border-left', 0 );
+				} else {
+					if ( isNextOnTheSameLine( this ) ) {
+						jQuery( this ).css( 'border-left', '5px solid ' + jQuery( this ).data( 'wcp-group-color' ) );
+					} else {
+						jQuery( this ).css( 'border-left', '5px solid ' + jQuery( this ).data( 'wcp-group-color' ) );
+					}
+				}
 			} );
 	}
 
@@ -24,6 +61,16 @@ jQuery(document).ready(function () {
 
 	var observer = new MutationObserver( function ( mutations ) {
 		mutations.forEach( function ( mutation ) {
+			if ( mutation.type === 'attributes' && mutation.attributeName === 'hidden' ) {
+				// param_group row expanded: hidden attribute removed → wait for slideToggle to finish
+				if ( ! mutation.target.hasAttribute( 'hidden' ) ) {
+					setTimeout( function () {
+						applyGroupColors( document );
+					}, 420 );
+				}
+				return;
+			}
+
 			jQuery( mutation.addedNodes ).filter( function () {
 				return this.nodeType === 1;
 			} ).each( function () {
@@ -32,5 +79,5 @@ jQuery(document).ready(function () {
 		} );
 	} );
 
-	observer.observe( document.body, { childList: true, subtree: true } );
+	observer.observe( document.body, { childList: true, subtree: true, attributes: true, attributeFilter: [ 'hidden' ] } );
 });
