@@ -9,6 +9,14 @@ jQuery(document).ready(function () {
 			return false
 		}
 
+		if ( ! jQuery( prev ).data( 'wcp-group-color' ) ) {
+			return false;
+		}
+
+		if ( jQuery( el ).data( 'wcp-group-color' ) !== jQuery( prev ).data( 'wcp-group-color' ) ) {
+			return false
+		}
+
 		return Math.round(el.getBoundingClientRect().top) === Math.round(prev.getBoundingClientRect().top);
 
 	}
@@ -34,7 +42,7 @@ jQuery(document).ready(function () {
 		}, 100 );
 	} );
 
-	var observer = new MutationObserver( function ( mutations ) {
+	var domObserver = new MutationObserver( function ( mutations ) {
 		mutations.forEach( function ( mutation ) {
 			if ( mutation.type === 'attributes' && mutation.attributeName === 'hidden' ) {
 				// param_group row expanded: hidden attribute removed → wait for slideToggle to finish
@@ -53,6 +61,16 @@ jQuery(document).ready(function () {
 			} );
 		} );
 	} );
+	domObserver.observe( document.body, { childList: true, subtree: true, attributes: true, attributeFilter: [ 'hidden' ] } );
 
-	observer.observe( document.body, { childList: true, subtree: true, attributes: true, attributeFilter: [ 'hidden' ] } );
+	// any param dependency toggled (adds/removes vc_dependent-hidden on .vc_column)
+	var dependencyChangeTimer;
+	var dependencyObserver = new MutationObserver( function () {
+		clearTimeout( dependencyChangeTimer );
+		dependencyChangeTimer = setTimeout( function () {
+			applyGroupColors( document );
+		}, 50 );
+	} );
+
+	dependencyObserver.observe( document.body, { subtree: true, attributes: true, attributeFilter: [ 'class' ] } );
 });
