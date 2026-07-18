@@ -1,6 +1,9 @@
 jQuery(document).ready(function () {
 	function isPrevOnTheSameLine( el ) {
-		var prev = el.previousElementSibling;
+		// hidden params take no layout space, so the next visible param reflows
+		// up next to whatever precedes them — skip hidden siblings to find it.
+		var prev = jQuery( el ).prevAll( ':not(.vc_dependent-hidden)' ).get( 0 );
+
 		if ( ! prev ) {
 			return false
 		}
