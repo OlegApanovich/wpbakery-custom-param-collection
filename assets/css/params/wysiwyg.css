@@ -28,5 +28,7 @@
 }
 
 .wcp-wysiwyg-container textarea.wcp-wysiwyg-editor {
+    width: 100%;
     height: 250px;
+    box-sizing: border-box;
 }
