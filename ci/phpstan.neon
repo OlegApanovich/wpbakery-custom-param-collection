@@ -5,6 +5,8 @@ parameters:
     phpVersion: 70100
     bootstrapFiles:
         - ../../../../wp-load.php # Load WordPress core files for analysis.
+    dynamicConstantNames:
+        - WPB_VC_VERSION # Depends on installed WPBakery version.
     ignoreErrors:
     paths:
         - ../wpbakery-custom-param-collection.php
